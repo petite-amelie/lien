@@ -1,0 +1,62 @@
+.footer {
+  width: 100vw;
+  height: 30vh;
+  border-top: 0.5vh solid #c4e2df;
+  margin-top: 10vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-left {
+  width: 15vw;
+  height: 30vh;
+  margin: 0 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lien-icon-footer {
+  width: 7vw;
+  height: 7vw;
+}
+
+.footer-right {
+  width: 30vw;
+  height: 30vh;
+  margin: 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-right-top {
+  height: 1vh;
+  width: 21vw;
+  margin: 0 0 0 auto;
+}
+
+.contact-us {
+  color: black;
+  font-size: 2vh;
+}
+
+.terms-of-service {
+  color: black;
+  font-size: 2vh;
+}
+
+.footer-right-under {
+  width: 21vw;
+  height: 5.5vh;
+  margin: 0 0 0 auto;
+}
+
+.apple-icon {
+  width: 10vw;
+  height: 5.5vh;
+}
+.android-icon {
+  width: 10vw;
+  height: 5.5vh;
+}

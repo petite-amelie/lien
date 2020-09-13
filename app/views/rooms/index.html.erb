@@ -1,0 +1,38 @@
+<%= render "shared/header" %>
+
+  <%= image_tag "lien-image.png", class:"lien-image" %>
+  <%= image_tag "lien-image.png", class:"how-to" %>
+
+  <h2 class="popular-room">人気の個展</h2>
+  <div class=room-contents>
+    <ul class="room-lists">
+      <% @rooms = ["", "", "", "",""] %>    <%#この行は表示用のため後で消す %>
+      <% @rooms.first(3).each do |room| %>
+        <li class=list>
+          <%= link_to "" do %>
+            <div class="room-img-content">
+              <%= image_tag "", class: "room-img" %>
+            </div>
+            <div class="room-info">
+              <h3 class="room-name">
+                <%= "Room Name" %>
+              </h3>
+              <h3 class="artist-name">
+                <%= "Artist Name" %>
+              </h3>
+            </div>
+            <div class="like-count-sum">
+              <%= image_tag "like.png", class: "like-icon" %>
+              <span class="like-count">100</span>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+      <div class="more-rooms">
+        <%= link_to "more", "#", class: "popular-room-index" %>
+      </div>
+    </ul>
+  </div>
+
+
+<%= render "shared/footer" %>
