@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable
   devise :validatable, password_length: 6..128
 
+  has_one_attached :avatar
+
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX
 
