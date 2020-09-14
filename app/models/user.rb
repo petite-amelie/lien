@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates_format_of :password, with: PASSWORD_REGEX
 
   with_options presence: true do
-    validates :nickname
+    validates :nickname, length: { maximum: 8 }
     validates :phone_number, format:{ with: /\A\d{11}\z/ }
     validates :birth
   end
