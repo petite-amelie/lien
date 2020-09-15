@@ -6,6 +6,7 @@ class User < ApplicationRecord
   devise :validatable, password_length: 6..128
 
   has_one_attached :avatar
+  has_many :rooms, dependent: :destroy
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX
