@@ -15,6 +15,7 @@
     <ul class='lists-right'>
       <%# ログインの有無で表示が変わる %>
       <% if user_signed_in? %>
+       <li><%= link_to '個展の作成', new_room_path, class: "create-room" %></li>
        <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
       <% else %>
