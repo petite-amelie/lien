@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    attributes:
+      room:
+
+        room_name: 個展名
+        room_introduction: 個展の説明
+        genre: ジャンル
