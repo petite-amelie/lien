@@ -1,0 +1,61 @@
+<%= render "shared/header" %>
+
+<%= link_to "マイページへ戻る", "", class: "move-to-mypage" %>
+<div class="room-info">
+  <div class="room-name-content">
+    <h1 class="room-name"><%= @room.room_name %></h1>
+  </div>
+  <div class="room-img-content">
+    <%= image_tag @room.room_image, class: "room-img" %>
+  </div>
+  <div class="room-introduction-content">
+    <p class="room-introduction"><%= @room.room_introduction %></p>
+  </div>
+</div>
+
+<%= form_with model: @item, url: room_items_path, method: :post, id: 'new_item', class: 'item-main', local: true do |f| %>
+
+  <%# 作品追加フォーム %>
+  <div class="new-items">
+        <div class="weight-bold-text">
+          作品名
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :item_name, class:"items-text", id:"item-name", placeholder:"作品名（必須 20文字まで)", maxlength:"20" %>
+        <div class="items-explain">
+          <div class="weight-bold-text">
+            作品の説明
+            <span class="indispensable">任意</span>
+          </div>
+          <%= f.text_area :item_introduction, class:"items-text", id:"item-info", placeholder:"作品の説明（必須 100文字まで)" ,rows:"5" ,maxlength:"100" %>
+        </div>
+        <div class="item-img-upload">
+          <div class="weight-bold-text">
+            作品画像
+            <span class="indispensable">必須</span>
+          </div>
+          <div class="click-upload">
+            <p>
+              クリックしてファイルをアップロード
+            </p>
+            <%= f.file_field :item_image, id:"item-image" %>
+          </div>
+        </div>
+        <div class="item-price">
+          <div class="weight-bold-text">
+            作品の料金
+            <span class="indispensable">任意</span>
+            <p>販売を希望しない場合は空欄で可</p>
+          </div>
+          <span class="sell-yen">¥</span>
+          <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）10000" %>
+        </div>
+        <div class="sell-btn-contents">
+          <%= f.submit "作品追加" ,class:"sell-btn" %>
+          <%=link_to 'もどる', "#", class:"back-btn" %>
+        </div>
+  </div>
+  <%# //作品追加フォーム %>
+<% end %>
+
+<%= render "shared/footer" %>
