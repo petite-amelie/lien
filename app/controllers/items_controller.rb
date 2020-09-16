@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @items = @room.items
+    @items = @room.items.with_attached_item_image     #with_attached_item_image でN+1問題の対策
   end
 
   def create
@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to new_room_item_path(@room)   #@roomを付与してroomidを指定してリダイレクト
     else
-      @items = @room.items       #@itemsを定義しエラーを回避
+      @items = @room.items.with_attached_item_image       #@itemsを定義しエラーを回避
       render :new
     end
   end
