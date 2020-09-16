@@ -1,17 +1,18 @@
 class ItemsController < ApplicationController
+  before_action :room_find_params
 
   def new
     @item = Item.new
-    @room = Room.find(params[:room_id])
+    @items = @room.items
   end
 
   def create
-    @room = Room.find(params[:room_id])
-    @item = @room.items.new(item_params)
+    @item = @room.items.new(item_params)      #@roomに紐付いたitemを作成
     if @item.save
-      redirect_to new_room_item_path(@room)
+      redirect_to new_room_item_path(@room)   #@roomを付与してroomidを指定してリダイレクト
     else
-      render new
+      @items = @room.items       #@itemsを定義しエラーを回避
+      render :new
     end
   end
 
@@ -19,5 +20,9 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:item_name, :item_introduction, :price,:item_image )
+  end
+
+  def room_find_params
+    @room = Room.find(params[:room_id])
   end
 end
