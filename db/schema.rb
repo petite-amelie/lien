@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2020_09_15_011201) do
     t.string "item_introduction"
     t.integer "price"
     t.integer "room_id", null: false
-    t.integer "likes_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
