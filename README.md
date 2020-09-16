@@ -24,12 +24,12 @@
 
 ## Roomsテーブル
 
-| Column          | Type    | Options                        |
-| ----------      | ------  | ------------------------------ |
-| name            | string  | null: false                    |
-| introduction    | string  | null: false                    |
-| genre           | string  | null: false                    |
-| user_id         | integer | null: false, foreign_key :true |
+| Column               | Type    | Options                        |
+| -------------------- | ------  | ------------------------------ |
+| room_name            | string  | null: false                    |
+| room_introduction    | string  | null: false                    |
+| genre                | string  | null: false                    |
+| user_id              | integer | null: false, foreign_key :true |
 
 ### Association
 - has_many :items
@@ -39,20 +39,17 @@
 
 ## Itemsテーブル
 
-| Column          | Type    | Options                        |
-| ----------      | ------  | ------------------------------ |
-| name            | string  | null: false                    |
-| introduction    | string  |                                |
-| price           | integer |                                |
-| room_id         | integer | null: false, foreign_key :true |
-| user_id         | integer | null: false, foreign_key :true |
-| likes_count     | integer |                                |
+| Column               | Type    | Options                        |
+| -------------------- | ------  | ------------------------------ |
+| item_name            | string  | null: false                    |
+| item_introduction    | string  |                                |
+| price                | integer |                                |
+| room_id              | integer | null: false, foreign_key :true |
 
 ### Association
 - has_one :order
 - has_many :likes
 - belongs_to :room
-- belongs_to :user
 
 
 ## Likesテーブル
