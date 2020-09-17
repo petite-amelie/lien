@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    attributes:
+      # roomモデル
+      room:
+
+        room_name: 個展名
+        room_introduction: 個展の説明
+        genre: ジャンル
+
+      # itemモデル
+      item:
+        item_name: 作品名
+        item_introduction: 作品の説明
+        item_image: 作品画像
+        price: 価格
