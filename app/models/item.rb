@@ -4,8 +4,17 @@ class Item < ApplicationRecord
 
   with_options presence: true do
     validates :item_name, length: { maximum: 20 }
-    validates :item_image
   end
+  
+  validates :item_image, presence: {message: "を選択してください"}
   validates :item_introduction, length: { maximum: 100 }
-  validates :price, format: { with: /\A[0-9]+\z/}
+
+  #priceが空の場合は適用しない
+  validates :price, format: { with: /\A[0-9]+\z/}, unless: :null_true,
+            :numericality => { :greater_than_or_equal_to => 300, :less_than_or_equal_to => 9999999, message: "は¥300〜¥9999999の半角数字で入力してください" }
+  #//priceが空の場合は適用しない
+
+  def null_true
+    price.blank?
+  end
 end
