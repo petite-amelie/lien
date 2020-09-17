@@ -4,6 +4,7 @@ RSpec.describe Room, type: :model do
   before do
     @room = FactoryBot.build(:room)
     @room.room_image = fixture_file_upload('public/images/test_image.png')
+    @room.room_introduction = Faker::Alphanumeric.alpha(number: 1000)  #エラー回避のためここで代入してます
   end
 
   describe '個展新規登録' do
