@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   def index
+    @rooms = Room.all.order("created_at DESC")
   end
 
   def new
@@ -20,6 +21,18 @@ class RoomsController < ApplicationController
     if @room.destroy
       redirect_to root_path
     end
+  end
+
+  def release
+    @room =  Room.find(params[:id])
+    @room.released! unless @room.released?
+    redirect_to  root_path
+  end
+
+  def nonrelease
+    @room =  Room.find(params[:id])
+    @room.nonreleased! unless @room.nonreleased?
+    redirect_to root_path
   end
 
   private
