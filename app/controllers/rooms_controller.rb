@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   def index
+    @rooms = Room.all.order("created_at DESC")
   end
 
   def new
@@ -25,13 +26,13 @@ class RoomsController < ApplicationController
   def release
     @room =  Room.find(params[:id])
     @room.released! unless @room.released?
-    redirect_to  root_path, notice: 'このアカウントを公開しました'
+    redirect_to  root_path
   end
 
   def nonrelease
     @room =  Room.find(params[:id])
     @room.nonreleased! unless @room.nonreleased?
-    redirect_to root_path, notice: 'このアカウントを非公開にしました'
+    redirect_to root_path
   end
 
   private
