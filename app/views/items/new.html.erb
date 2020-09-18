@@ -11,6 +11,9 @@
   <div class="room-introduction-content">
     <p class="room-introduction"><%= @room.room_introduction %></p>
   </div>
+  <div class="room-destroy-btn">
+    <%= link_to '個展の削除', "/rooms/#{@room.id}", method: :delete, data: { confirm: '個展内の作品も消えますがよろしいですか？' }, class:'room-destroy' %>
+  </div>
 </div>
 
 <%= form_with model: @item, url: room_items_path, method: :post, id: 'new_item', class: 'item-main', local: true do |f| %>
