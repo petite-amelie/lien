@@ -59,7 +59,7 @@
         </div>
         <div class="sell-btn-contents">
           <%= f.submit "作品追加" ,class:"sell-btn" %>
-          <%=link_to 'もどる', "#", class:"back-btn" %>
+          <%=link_to 'もどる', "javascript:history.back()", class:"back-btn" %>
         </div>
   </div>
   <%# //作品追加フォーム %>
@@ -69,7 +69,7 @@
     <ul class="item-lists">
       <% @items.each do |item| %>
         <li class="list">
-          <%= link_to "/rooms/#{@room.id}/items/#{item.id}" do %>
+          <%= link_to "/rooms/#{@room.id}/items/#{item.id}/edit" do %>
             <div class="item-img-content">
               <%if item.item_image.attached?%>
               <%= image_tag item.item_image, class: "item-img" %>
