@@ -1,0 +1,39 @@
+<%= render "shared/header" %>
+
+<%= link_to '戻る', 'javascript:history.back()', class: "back_to_page" %>
+<div class="item-show">
+  <div class="item-box">
+    <h2 class="item-name">
+      <%= @item.item_name %>
+    </h2>
+    <div class='item-img-content'>
+      <%= image_tag @item.item_image ,class:"item-box-img" %>
+    </div>
+    <p class="item-introduction">
+      <%= @item.item_introduction %>
+    </p>
+    <%# 価格が空の場合は表示しない %>
+    <% if @item.price != nil %>
+    <div class="item-price-box">
+      <span class="item-price">
+        <%= "¥ #{@item.price}" %>
+      </span>
+      <span class="item-tax">
+        (税込)
+      </span>
+    </div>
+    <% end %>
+    <%# //価格が空の場合は表示しない %>
+</div>
+
+<% if user_signed_in? && @room.user_id == current_user.id %>
+  <div class="item-destroy-btn">
+    <%= link_to '削除', "/rooms/#{@room.id}/items/#{@item.id}", method: :delete, data: { confirm: '作品を削除しますか？' }, class:'item-destroy' %>
+  </div>
+<% else %>
+  <div class="item-order-btn">
+    <%= link_to '購入する', "#",  class:'item-order' %>
+  </div>
+<% end %>
+
+    <%= render "shared/footer" %>
