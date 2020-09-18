@@ -48,4 +48,8 @@
   </div>
 
 <% end %>
+<div class="item-destroy-btn">
+    <%= link_to '削除', "/rooms/#{@room.id}/items/#{@item.id}", method: :delete, data: { confirm: '作品を削除しますか？' }, class:'item-destroy' %>
+</div>
+
   <%= render "shared/footer" %>
