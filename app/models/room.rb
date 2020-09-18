@@ -8,5 +8,5 @@ class Room < ApplicationRecord
     validates :room_introduction, length: { maximum: 1000 }
     validates :genre
   end
-
+  enum status:{nonreleased: 0, released: 1}
 end
