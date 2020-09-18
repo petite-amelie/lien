@@ -1,0 +1,56 @@
+<%= render "shared/header" %>
+
+<%# 個展情報 %>
+<div class="room-info">
+  <div class="room-name-content">
+    <h1 class="room-name"><%= @room.room_name %></h1>
+  </div>
+  <div class="room-introduction-content">
+    <p class="room-introduction"><%= @room.room_introduction %></p>
+  </div>
+  <% if user_signed_in? && @room.user_id == current_user.id %>
+  <div class="room-show-btn">
+    <%= link_to '個展の編集', new_room_item_path(@room), class:'room-show' %>
+  </div>
+  <% end %>
+</div>
+<%# 個展情報 %>
+
+<%# 作品の一覧 %>
+<div class="maked-items">
+    <ul class="item-lists">
+      <% @items.each do |item| %>
+        <li class="list">
+          <%= link_to room_item_path(item) do %>
+            <div class="item-img-content">
+              <%if item.item_image.attached?%>
+              <%= image_tag item.item_image, class: "item-img" %>
+              <%end%>
+            </div>
+            <div class="item-info">
+              <h3 class="item-name">
+                <%= item.item_name %>
+              </h3>
+              <h3 class="item-introduction">
+                <%= item.item_introduction %>
+              </h3>
+            </div>
+            <%# priceがある作品だけ表示する %>
+            <% if item.price != nil %>
+              <div class="item-price-content">
+                <h4 class="item-price">
+                  <%= item.price %>
+                </h4>
+              </div>
+            <% end %>
+            <%# //priceがある作品だけ表示する %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<%# 作品の一覧 %>
+<%=link_to 'もどる', "javascript:history.back()", class:"back-btn" %>
+
+
+<%= render "shared/footer" %>

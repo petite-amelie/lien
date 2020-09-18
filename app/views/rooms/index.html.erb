@@ -9,7 +9,7 @@
       <% @rooms.first(3).each do |room| %>
         <% if room.status == "released" %>
           <li class=list>
-            <%= link_to "" do %>
+            <%= link_to room_path(room) do %>
               <div class="room-img-content">
                 <%= image_tag room.room_image, class: "room-img" %>
               </div>

@@ -1,4 +1,6 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @rooms = Room.all.order("created_at DESC")
   end
@@ -33,6 +35,11 @@ class RoomsController < ApplicationController
     @room =  Room.find(params[:id])
     @room.nonreleased! unless @room.nonreleased?
     redirect_to root_path
+  end
+
+  def show
+    @room = Room.find(params[:id])
+    @items = @room.items.with_attached_item_image
   end
 
   private
