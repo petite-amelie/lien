@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :room_find_params, only: [:show, :new, :create, :update]
+  before_action :room_find_params, only: [:show, :new, :create, :update, :edit, :destroy]
   before_action :item_find_params, only: [:show, :edit, :update, :destroy]
   def new
     @item = Item.new
