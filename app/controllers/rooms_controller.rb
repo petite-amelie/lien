@@ -22,6 +22,18 @@ class RoomsController < ApplicationController
     end
   end
 
+  def release
+    @room =  Room.find(params[:id])
+    @room.released! unless @room.released?
+    redirect_to  root_path, notice: 'このアカウントを公開しました'
+  end
+
+  def nonrelease
+    @room =  Room.find(params[:id])
+    @room.nonreleased! unless @room.nonreleased?
+    redirect_to root_path, notice: 'このアカウントを非公開にしました'
+  end
+
   private
 
   def room_params
