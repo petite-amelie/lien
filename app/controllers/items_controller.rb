@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :room_find_params
-
+  before_action :room_find_params, only: [:show, :new, :create, :update]
+  before_action :item_find_params, only: [:show, :edit, :update, :destroy]
   def new
     @item = Item.new
     @items = @room.items.with_attached_item_image     #with_attached_item_image でN+1問題の対策
@@ -17,12 +17,20 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
-    @room = Room.find(params[:room_id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to new_room_item_path(@room)
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @item = Item.find(params[:id])
     if @item.destroy
       redirect_to new_room_item_path(@room)
     end
@@ -36,5 +44,9 @@ class ItemsController < ApplicationController
 
   def room_find_params
     @room = Room.find(params[:room_id])
+  end
+
+  def item_find_params
+    @item = Item.find(params[:id])
   end
 end
