@@ -101,4 +101,12 @@
 
 <% end %>
 
+<% if @room.released? %>
+  <%= link_to '非公開にする',"/rooms/nonrelease/#{@room.id}", method: :patch%>
+<% else %>
+  <%= link_to '公開する',"/rooms/release/#{@room.id}", method: :patch%>
+  <%= link_to '公開しない', root_path %>
+<% end %>
+
+
 <%= render "shared/footer" %>
