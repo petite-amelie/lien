@@ -16,12 +16,12 @@ class RoomsController < ApplicationController
   end
 
   def destroy
-    @room = Room.find(params[:ids])
+    @room = Room.find(params[:id])
     if @room.destroy
       redirect_to root_path
     end
   end
-a
+
   private
 
   def room_params

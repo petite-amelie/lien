@@ -16,6 +16,18 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @item = Item.find(params[:id])
+    @room = Room.find(params[:room_id])
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      redirect_to new_room_item_path(@room)
+    end
+  end
+
   private
 
   def item_params
