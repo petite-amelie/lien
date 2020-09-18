@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2020_09_15_011201) do
     t.string "room_introduction", null: false
     t.string "genre", null: false
     t.integer "user_id", null: false
+    t.integer "status", limit: 1, default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
