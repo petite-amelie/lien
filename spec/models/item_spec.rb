@@ -42,17 +42,17 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("価格は¥300〜¥9999999の半角数字で入力してください")
       end
-      it "room_nameが空だと登録できない" do
+      it "item_nameが空だと登録できない" do
         @item.item_name = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("作品名を入力してください")
       end
-      it "room_nameが21字以上だと登録できない" do
+      it "item_nameが21字以上だと登録できない" do
         @item.item_name = Faker::Alphanumeric.alpha(number: 21)
         @item.valid?
         expect(@item.errors.full_messages).to include("作品名は20文字以内で入力してください")
       end
-      it "room_introductionが101字以上だと登録できない" do
+      it "item_introductionが101字以上だと登録できない" do
         @item.item_introduction = Faker::Alphanumeric.alpha(number: 101)
         @item.valid?
         expect(@item.errors.full_messages).to include("作品の説明は100文字以内で入力してください")
