@@ -13,6 +13,16 @@
     <%= link_to '個展の編集', new_room_item_path(@room), class:'room-show' %>
   </div>
   <% end %>
+  <div class="like-counts">
+    <h3>お気に入り件数: <%= @room.likes.count %></h3>
+  </div>
+  <div class="like-btn">
+    <% if current_user.already_liked?(@room) %>
+      <%= button_to 'お気に入り解除', room_like_path(@room), method: :delete %>
+    <% else %>
+      <%= button_to 'お気に入りに追加', room_likes_path(@room) %>
+    <% end %>
+  </div>
 </div>
 <%# 個展情報 %>
 

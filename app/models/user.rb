@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_many :rooms, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_rooms, through: :likes, source: :room   #お気に入りしたroomを簡単に取得するための架空のテーブル
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX
@@ -26,4 +28,10 @@ class User < ApplicationRecord
     validates :first_name_kana
     validates :last_name_kana
   end
+
+  # roomに対してすでにお気に入りにしているかどうか判定
+  def already_liked?(room)
+    self.likes.exists?(room_id: room.id)
+  end
+  # //roomに対してすでにお気に入りにしているかどうか判定
 end
