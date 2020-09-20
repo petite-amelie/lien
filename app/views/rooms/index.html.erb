@@ -23,7 +23,7 @@
               </div>
               <div class="like-count-sum">
                 <%= image_tag "like.png", class: "like-icon" %>
-                <span class="like-count">100</span>
+                <span class="like-count"><%= room.liked_users.count %></span>
               </div>
             <% end %>
           </li>
