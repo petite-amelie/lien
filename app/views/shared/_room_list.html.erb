@@ -8,10 +8,10 @@
     </div>
     <div class="room-info">
       <h3 class="room-name">
-        <%= room.room_name %>
+        <%= link_to room.room_name, room_path(room), class: "room-link" %>
       </h3>
       <h3 class="artist-name">
-        <%= room.user.nickname %>
+        <%= link_to room.user.nickname, user_path(room.user), class: "room-link" %>
       </h3>
     </div>
     <div class="like-count-sum">
