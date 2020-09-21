@@ -2,7 +2,7 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @rooms = Room.all.order("created_at DESC")
+    @rooms = Room.all.order("created_at DESC").with_attached_room_image
   end
 
   def new
