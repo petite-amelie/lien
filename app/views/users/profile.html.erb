@@ -1,0 +1,29 @@
+<%= render "shared/header" %>
+<h1>プロフィール</h1>
+
+<%= link_to "マイページへ戻る", user_path(current_user.id), class: "move-to-mypage" %>
+
+<div class="user-info-no-change">
+  <div class="user-info-contents">
+    <h4 class="user-info"> <%= "プロフィール画像" %> </h4>
+    <%= image_tag @user.avatar, class: "user-avatar" %>
+  </div>
+  <div class="user-info-contents">
+    <h4 class="user-info"> <%= "お名前" %> </h4>
+    <p> <%= "#{@user.last_name}  #{@user.first_name}" %> </p>
+  </div>
+  <div class="user-info-contents">
+    <h4 class="user-info"> <%= "フリガナ" %> </h4>
+    <p> <%= "#{@user.last_name_kana}  #{@user.first_name_kana}" %> </p>
+  </div>
+  <div class="user-info-contents">
+    <h4 class="user-info"> <%= "生年月日" %> </h4>
+    <p> <%= "#{@user.birth}" %> </p>
+  </div>
+  <div class="user-info-contents">
+    <h4 class="user-info"> <%= "メールアドレス" %> </h4>
+    <p> <%= "#{@user.email}" %> </p>
+  </div>
+</div>
+
+<%= render "shared/footer" %>
