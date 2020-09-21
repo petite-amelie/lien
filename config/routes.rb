@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: "rooms#index"
   patch "/rooms/nonrelease/:id", to: "rooms#nonrelease"
   patch "/rooms/release/:id", to: "rooms#release"
+  get "/users/profile/:id", to: "users#profile"
   resources :rooms, only: [:index, :new, :create, :destroy, :show] do
     resources :items
     resources :likes, only: [:create, :destroy]
