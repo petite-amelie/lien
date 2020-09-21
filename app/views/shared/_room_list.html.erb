@@ -1,0 +1,22 @@
+<li class=list>
+  <%= link_to room_path(room) do %>
+    <div class="room-img-content">
+      <%= image_tag room.room_image, class: "room-img" %>
+      <% if room.status == "nonreleased" %>
+        <p>非公開</p>
+      <% end %>
+    </div>
+    <div class="room-info">
+      <h3 class="room-name">
+        <%= link_to room.room_name, room_path(room), class: "room-link" %>
+      </h3>
+      <h3 class="artist-name">
+        <%= link_to room.user.nickname, user_path(room.user), class: "room-link" %>
+      </h3>
+    </div>
+    <div class="like-count-sum">
+      <%= image_tag "like.png", class: "like-icon" %>
+      <span class="like-count"><%= room.liked_users.count %></span>
+    </div>
+  <% end %>
+</li>
