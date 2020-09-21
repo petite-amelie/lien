@@ -7,8 +7,7 @@
     <ul class="left-lists">
       <li><%= link_to '個展の作成', new_room_path, class: "create-room" %></li>
       <li><%= link_to 'お気に入りの個展', "#", class: "like-room" %></li>
-      <li><%= link_to 'プロフィール', "#", class: "my-profile" %></li>
-      <li><%= link_to '本人情報', "#", class: "my-info" %></li>
+      <li><%= link_to 'プロフィール', "/users/profile/#{params[:id]}", class: "my-profile" %></li>
       <li><%= link_to 'ガイド', "#", class: "app-guide" %></li>
       <li><%= link_to 'お問い合わせ', "#", class: "contact-service" %></li>
       <li><%= link_to '退会', "#", class: "cancel-member" %></li>
