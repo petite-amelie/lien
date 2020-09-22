@@ -9,8 +9,15 @@
     </form>
   </div>
   <div class='nav'>
-    <ul class='lists-left'>
-      <li><%= link_to 'Genre', "#", class: "genre-list" %></li>
+    <%= link_to 'ジャンル', "#", class: "genre-lists", id: "genre-lists" %>
+    <ul class='lists-left-hidden', id="genre-bar">
+    <%# pathにそれぞれのジャンルを認識させるための値を渡している %>
+      <li><%= link_to '絵画', rooms_genre_path(genre: "絵画"), class: "genre-list" %></li>
+      <li><%= link_to '写真', rooms_genre_path(genre: "写真"), class: "genre-list" %></li>
+      <li><%= link_to '書道', rooms_genre_path(genre: "書道"), class: "genre-list" %></li>
+      <li><%= link_to 'テキスタイル', rooms_genre_path(genre: "テキスタイル"), class: "genre-list" %></li>
+      <li><%= link_to '立体', rooms_genre_path(genre: "立体"), class: "genre-list" %></li>
+    <%# //pathにそれぞれのジャンルを認識させるためのpathを渡している %>
     </ul>
     <ul class='lists-right'>
       <%# ログインの有無で表示が変わる %>
