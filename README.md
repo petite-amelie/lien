@@ -70,7 +70,7 @@
 | prefecture_id   | integer | null: false                    |
 | city            | string  | null: false                    |
 | house_number    | string  | null: false                    |
-| building_number | string  |                                |
+| building_name   | string  |                                |
 | user_id         | integer | null: false, foreign_key :true |
 | order_id        | integer | null: false, foreign_key :true |
 
