@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   get "/users/like/:id", to: "users#like"
   get "/rooms/genre", to: "rooms#genre"
   resources :rooms, only: [:index, :new, :create, :destroy, :show] do
-    resources :items
+    resources :items do
+      resources :orders, only: [:index, :new, :create]
+    end
     resources :likes, only: [:create, :destroy]
   end
   resources :users, only: [:show]
