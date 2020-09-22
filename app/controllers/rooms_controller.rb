@@ -42,6 +42,10 @@ class RoomsController < ApplicationController
     @items = @room.items.with_attached_item_image
   end
 
+  def genre
+    @rooms = Room.all.order("created_at DESC").with_attached_room_image
+  end
+
   private
 
   def room_params

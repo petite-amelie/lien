@@ -50,10 +50,13 @@
   padding: 1vh 0;
 }
 
-.lists-left {
-  display: flex;
-  min-width: 200px;
+li {
+  list-style: none;
+}
 
+.lists-left-hidden {
+  min-width: 200px;
+  display: none;
 }
 
 .genre-list {
