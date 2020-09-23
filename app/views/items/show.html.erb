@@ -30,10 +30,12 @@
   <div class="item-destroy-btn">
     <%= link_to '削除', "/rooms/#{@room.id}/items/#{@item.id}", method: :delete, data: { confirm: '作品を削除しますか？' }, class:'item-destroy' %>
   </div>
-<% else %>
+<% elsif @item.order == nil %>
   <div class="item-order-btn">
-    <%= link_to '購入する', "#",  class:'item-order' %>
+    <%= link_to '購入する', "/rooms/#{@room.id}/items/#{@item.id}/orders",  class:'item-order' %>
   </div>
+<% else %>
+  <p> <%= "売却済み" %> </p>
 <% end %>
 
     <%= render "shared/footer" %>
