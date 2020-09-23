@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :room
   has_one_attached :item_image
+  has_one :order
 
   with_options presence: true do
     validates :item_name, length: { maximum: 20 }
