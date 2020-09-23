@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :item_find_params, only: [:index, :create]
   before_action :deja_order, only: [:index]
+  before_action :not_buy_owner, only: [:index]
   def index
     @item = Item.find(params[:item_id])
     @order = AddressOrder.new
@@ -45,4 +46,12 @@ class OrdersController < ApplicationController
   end
   # //すでに購入されてる場合はURL直打ちでも購入ページには飛べない
 
+  # 自分の作品の購入ページには遷移できない
+  def not_buy_owner
+    @room = Room.find(params[:room_id])
+    if @room.user_id == current_user.id
+      redirect_to root_path
+    end
+  end
+  # //自分の作品の購入ページには遷移できない
 end
