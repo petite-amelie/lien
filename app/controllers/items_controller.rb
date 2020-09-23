@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :room_find_params, only: [:show, :new, :create, :update, :edit, :destroy]
   before_action :item_find_params, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show]
   def new
     @item = Item.new
     @items = @room.items.with_attached_item_image     #with_attached_item_image でN+1問題の対策
