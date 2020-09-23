@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :item_find_params, only: [:index, :create]
+  before_action :deja_order, only: [:index]
   def index
     @item = Item.find(params[:item_id])
     @order = AddressOrder.new
@@ -35,4 +36,13 @@ class OrdersController < ApplicationController
   def item_find_params
     @item = Item.find(params[:item_id])
   end
+
+  # すでに購入されてる場合はURL直打ちでも購入ページには飛べない
+  def deja_order
+    if request.referer == nil && Item.find(params[:item_id]).order != nil
+      redirect_to root_path
+    end
+  end
+  # //すでに購入されてる場合はURL直打ちでも購入ページには飛べない
+
 end
