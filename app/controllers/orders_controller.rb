@@ -55,3 +55,4 @@ class OrdersController < ApplicationController
   end
   # //自分の作品の購入ページには遷移できない
 end
+
