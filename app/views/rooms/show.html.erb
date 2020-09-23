@@ -17,7 +17,7 @@
     <h3>お気に入り件数: <%= @room.likes.count %></h3>
   </div>
   <div class="like-btn">
-    <% if current_user.already_liked?(@room) %>
+    <% if user_signed_in? && current_user.already_liked?(@room) %>
       <%= button_to 'お気に入り解除', room_like_path(@room), method: :delete %>
     <% else %>
       <%= button_to 'お気に入りに追加', room_likes_path(@room) %>
@@ -31,7 +31,7 @@
     <ul class="item-lists">
       <% @items.each do |item| %>
         <li class="list">
-          <%= link_to room_item_path(item) do %>
+          <%= link_to "/rooms/#{@room.id}/items/#{item.id}" do %>
             <div class="item-img-content">
               <%if item.item_image.attached?%>
               <%= image_tag item.item_image, class: "item-img" %>
