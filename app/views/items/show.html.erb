@@ -30,7 +30,7 @@
   <div class="item-destroy-btn">
     <%= link_to '削除', "/rooms/#{@room.id}/items/#{@item.id}", method: :delete, data: { confirm: '作品を削除しますか？' }, class:'item-destroy' %>
   </div>
-<% elsif user_signed_in? && @item.order == nil %>
+<% elsif @item.order == nil %>
   <div class="item-order-btn">
     <%= link_to '購入する', "/rooms/#{@room.id}/items/#{@item.id}/orders",  class:'item-order' %>
   </div>
