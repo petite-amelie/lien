@@ -32,7 +32,7 @@
   </div>
 <% else %>
   <div class="item-order-btn">
-    <%= link_to '購入する', "#",  class:'item-order' %>
+    <%= link_to '購入する', "/rooms/#{@room.id}/items/#{@item.id}/orders",  class:'item-order' %>
   </div>
 <% end %>
 
