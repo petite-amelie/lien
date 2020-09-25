@@ -6,7 +6,7 @@
   <h2 class="popular-room">人気の個展</h2>
   <div class=room-contents>
     <ul class="room-lists">
-      <% @rooms.first(3).each do |room| %>
+      <% @likes.first(3).each do |room| %>
         <% if room.status == "released" %>
           <%= render partial: "shared/room_list", locals: {room: room} %>
         <% end %>
@@ -16,6 +16,5 @@
       </div>
     </ul>
   </div>
-
 
 <%= render "shared/footer" %>

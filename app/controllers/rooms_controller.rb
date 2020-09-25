@@ -2,7 +2,8 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @rooms = Room.all.order("created_at DESC").with_attached_room_image
+    # @rooms   = Room.all.order("created_at DESC").with_attached_room_image
+    @likes = Room.all.with_attached_room_image.sort {|a,b| b.liked_users.count <=> a.liked_users.count}   #いいね数順に並び替え
   end
 
   def new
