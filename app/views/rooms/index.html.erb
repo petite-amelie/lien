@@ -1,21 +1,153 @@
+<div class="wrapper">
 <%= render "shared/header" %>
+  <div class="lien-image-box">
+  <%= image_tag "lien-image.jpg", class:"lien-image" %>
+  <h1>LIEN.</h1>
+  <p>アートで人がつながる世界に。</p>
+  </div>
+  <%# 人気の個展 %>
+  <div class="info-wrap">
+      <div class="title-left">
+        <div class="book-mark">
+          <%= image_tag "book-mark.png", class:"book-mark-image" %>
+        </div>
+        <h2 class="title-name">
+        人気の個展
+        </h2>
+        <div class="more-rooms">
+          <%= link_to "more", "#", class: "popular-room-index" %>
+        </div>
+      </div>
 
-  <%= image_tag "lien-image.png", class:"lien-image" %>
-  <%= image_tag "lien-image.png", class:"how-to" %>
-
-  <h2 class="popular-room">人気の個展</h2>
-  <div class=room-contents>
-    <ul class="room-lists">
-      <% @rooms.first(3).each do |room| %>
-        <% if room.status == "released" %>
-          <%= render partial: "shared/room_list", locals: {room: room} %>
+    <div class=room-contents>
+      <ul class="room-lists">
+        <% @likes.first(3).each do |room| %>
+          <% if room.status == "released" %>
+            <%= render partial: "shared/room_list", locals: {room: room} %>
+          <% end %>
         <% end %>
-      <% end %>
+      </ul>
+    </div>
+  </div>
+  <%# //人気の個展 %>
+
+  <%# ジャンルから選ぶ %>
+  <div class="info-wrap">
+    <div class="title-left">
+      <div class="book-mark">
+          <%= image_tag "genre.png", class:"book-mark-image" %>
+      </div>
+      <h2 class="title-name">
+        ジャンルを選ぶ
+      </h2>
       <div class="more-rooms">
         <%= link_to "more", "#", class: "popular-room-index" %>
       </div>
-    </ul>
+    </div>
+
+    <div class="genre-contents">
+      <div class="genre-image-box">
+        <div class="genre-image-link">
+          <%= link_to rooms_genre_path(genre: "絵画") do %>
+          <%= image_tag "painting.jpg", class:"genre-image" %>
+          <p>Painting</p>
+          <%= image_tag "yazirusi.png", class:"yazirusi-image" %>
+          <% end %>
+        </div>
+        <div class="genre-image-link">
+          <%= link_to rooms_genre_path(genre: "写真") do %>
+          <%= image_tag "picture.jpg", class:"genre-image" %>
+          <p>Picture</p>
+          <%= image_tag "yazirusi.png", class:"yazirusi-image" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="genre-image-box">
+        <div class="genre-image-link">
+        <%= link_to rooms_genre_path(genre: "書道") do %>
+          <%= image_tag "calligraphy.jpg", class:"genre-image" %>
+          <p>Calligraphy</p>
+          <%= image_tag "yazirusi.png", class:"yazirusi-image" %>
+        <% end %>
+        </div>
+        <div class="genre-image-link">
+          <%= link_to rooms_genre_path(genre: "彫刻") do %>
+          <%= image_tag "sculpture.jpg", class:"genre-image" %>
+          <p>Sculpture</p>
+          <%= image_tag "yazirusi.png", class:"yazirusi-image" %>
+          <% end %>
+        </div>
+        <div class="genre-image-link">
+          <%= link_to rooms_genre_path(genre: "テキスタイル") do %>
+          <%= image_tag "textile.jpg", class:"genre-image" %>
+          <p>Textile</p>
+          <%= image_tag "yazirusi.png", class:"yazirusi-image" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
+  <%# //ジャンルから選ぶ %>
+
+  <%# 注目のアーティスト %>
+  <div class="info-wrap">
+    <div class="title-left">
+      <div class="book-mark">
+          <%= image_tag "artists.png", class:"book-mark-image" %>
+      </div>
+      <h2 class="title-name">
+        注目<br>アーティスト
+      </h2>
+      <div class="more-rooms">
+        <%= link_to "more", "#", class: "popular-room-index" %>
+      </div>
+    </div>
 
 
-<%= render "shared/footer" %>
+    <div class="artist-contents">
+      <div class="artist-image-box">
+        <div class="artist-image-link">
+          <%= link_to rooms_genre_path(genre: "絵画") do %>
+          <%= image_tag "artist_1.jpg", class:"artist-image" %>
+          <% end %>
+          <p>Emma</p>
+        </div>
+        <div class="artist-image-link">
+          <%= link_to rooms_genre_path(genre: "絵画") do %>
+          <%= image_tag "artist_2.jpg", class:"artist-image" %>
+          <% end %>
+          <p>Lauren Tsai</p>
+        </div>
+        <div class="artist-image-link">
+          <%= link_to rooms_genre_path(genre: "絵画") do %>
+          <%= image_tag "artist_3.jpg", class:"artist-image" %>
+          <% end %>
+          <p>James Jean</p>
+        </div>
+      </div>
+      <div class="artist-image-box">
+        <div class="artist-image-link">
+          <%= link_to rooms_genre_path(genre: "絵画") do %>
+          <%= image_tag "artist_4.jpg", class:"artist-image" %>
+          <% end %>
+          <p>Alex</p>
+        </div>
+        <div class="artist-image-link">
+          <%= link_to rooms_genre_path(genre: "絵画") do %>
+          <%= image_tag "artist_5.jpg", class:"artist-image" %>
+          <% end %>
+          <p>Little Thunder</p>
+        </div>
+        <div class="artist-image-link">
+          <%= link_to rooms_genre_path(genre: "絵画") do %>
+          <%= image_tag "artist_6.jpg", class:"artist-image" %>
+          <% end %>
+          <p>Tsumi</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%# //注目のアーティスト %>
+
+<%= render "shared/footer" %> 
+</div>

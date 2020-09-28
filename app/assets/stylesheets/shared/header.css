@@ -1,22 +1,22 @@
 .top-page-header {
-  width: 100vw;
-  padding: 2vh 15vw;
+  height: 15vh;
   display: flex;
-  flex-direction: column;
-}
-
-.search-bar-contents {
-  display: flex;
+  background-color:#2a2a2a;
   justify-content: space-between;
-  align-items: center;
+  padding: 2vh;
 }
 
+.logo-contents {
+  margin: 3vh;
+}
 .lien-icon {
-  width: 10vw;
-  margin-right: 10vw;
+  color: #ffffff;
+  font-size: 6vh;
+  font-family: Moon;
 }
 
-.search-form {
+
+/* .search-form {
   width: 65vw;
   height: 5vh;
   display: flex;
@@ -27,72 +27,106 @@
   width: 100%;
   height: 5vh;
   padding-left: 10px;
-}
-
-.search-button {
-  width: 5vh;
-  border: 0;
-  cursor: pointer;
-  background-color: #c4e2df;
-  padding: 8px;
-}
-
-.search-icon {
-  width: 100%;
-}
+} */
 
 .nav {
   font-size: 18px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 100%;
-  padding: 1vh 0;
 }
+
 
 li {
   list-style: none;
 }
 
-.lists-left-hidden {
-  min-width: 200px;
+.lists-right-hidden {
   display: none;
+  width: 30vw;
+}
+
+.genre-lists {
+  width: 8vw;
+  margin: 0 1.5vw;
+  text-decoration: none;
+  color:white;
+  font-weight: bold;
+  font-family: Moon;
 }
 
 .genre-list {
+  float: left;
   text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
+  margin: 1vw 0 1vw 1vw;
+  padding:0.5vh;
+  font-weight: bold;
+  font-size:1vw;
+  line-height: 30px;
+  border: solid 1px white;
+  border-radius:20px;
+  color: white;
+}
+
+.lists-right-signin {
+  margin: 1vh 1.5vw 0 1.5vw;
+  display: flex;
 }
 
 .lists-right {
   display: flex;
-  list-style: none;
-  align-items: flex-end;
 }
 
-
 .user-nickname {
+  width: 8vw;
   text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
+  color: white;
   font-weight: bold;
+  margin: 0 1.5vw;
+  font-family: Moon;
 }
 
 
 .logout {
+  width: 8vw;
   text-decoration: none;
-  color: #333333;
+  color:white;
+  margin: 0 1.5vw;
+  font-weight: bold;
+  font-family: Moon;
 }
 
 .login {
+  width: 8vw;
   text-decoration: none;
-  line-height: 32px;
-  margin-right: 3vw;
-  color: #333333;
+  color: white;
+  margin: 0 1.5vw;
+  font-weight: bold;
+  font-family: Moon;
 }
 
 .sign-up {
+  width: 8vw;
   text-decoration: none;
-  color: #333333;
+  color: white;
+  margin: 0 1.5vw;
+  font-weight: bold;
+  font-family: Moon;
+}
+
+.create-room {
+  width: 8vw;
+  margin: 0 1.5vw;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-family: Moon;
+}
+
+.search-button {
+  width: 2vw;
+  border: 0;
+  margin: 0 1.5vw;
+  background-color: #2a2a2a;
+}
+
+.search-icon {
+  width: 1.5vh;
 }

@@ -1,35 +1,54 @@
 <header class='top-page-header'>
-  <div class='search-bar-contents'>
-    <%= link_to image_tag("logo-icon.png", class:"lien-icon"), "/" %>
-    <form class="search-form" action="#">
-      <input class='input-box' placeholder='作品名から探す'>
-      <button class="search-button">
-        <%= image_tag "search.png", class:"search-icon" %>
-      </button>
-    </form>
+  <div class='logo-contents'>
+    <%= link_to "LIEN.", root_path, class:"lien-icon" %>
   </div>
   <div class='nav'>
-    <%= link_to 'ジャンル', "#", class: "genre-lists", id: "genre-lists" %>
-    <ul class='lists-left-hidden', id="genre-bar">
-    <%# pathにそれぞれのジャンルを認識させるための値を渡している %>
-      <li><%= link_to '絵画', rooms_genre_path(genre: "絵画"), class: "genre-list" %></li>
-      <li><%= link_to '写真', rooms_genre_path(genre: "写真"), class: "genre-list" %></li>
-      <li><%= link_to '書道', rooms_genre_path(genre: "書道"), class: "genre-list" %></li>
-      <li><%= link_to 'テキスタイル', rooms_genre_path(genre: "テキスタイル"), class: "genre-list" %></li>
-      <li><%= link_to '立体', rooms_genre_path(genre: "立体"), class: "genre-list" %></li>
-    <%# //pathにそれぞれのジャンルを認識させるためのpathを渡している %>
-    </ul>
-    <ul class='lists-right'>
-      <%# ログインの有無で表示が変わる %>
-      <% if user_signed_in? %>
-       <li><%= link_to '個展の作成', new_room_path, class: "create-room" %></li>
-       <li><%= link_to current_user.nickname, user_path(current_user.id), class: "user-nickname" %></li>
-       <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
-      <% else %>
-       <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-       <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-       <% end %>
-      <%# //ログインの有無で表示が変わる%>
-    </ul>
+    <div class="lists-right-signin">
+      <ul class='lists-right'>
+        <%# ログインの有無で表示が変わる %>
+        <% if user_signed_in? %>
+        <div class="genre-btn">
+        <%= link_to 'Genre', "#", class: "genre-lists", id: "genre-lists" %>
+        </div>
+        <li><%= link_to 'Create', new_room_path, class: "create-room" %></li>
+        <li><%= link_to "My account", user_path(current_user.id), class: "user-nickname" %></li>
+        <li><%= link_to 'sign out', destroy_user_session_path, method: :delete, class: "logout" %></li>
+        <div class="lists-right-content">
+          <%# <form class="search-form" action="#"> %>
+          <%# <input class='input-box' placeholder='作品名から探す'> %>
+          <button class="search-button">
+            <%= image_tag "search.png", class:"search-icon" %>
+          </button>
+          <%# </form> %>
+        </div>
+        <% else %>
+        <div class="genre-btn">
+        <%= link_to 'Genre', "#", class: "genre-lists", id: "genre-lists" %>
+        </div>
+        <li><%= link_to 'sign in', new_user_session_path, class: "login" %></li>
+        <li><%= link_to 'sign up', new_user_registration_path, class: "sign-up" %></li>
+        <div class="lists-right-content">
+          <%# <form class="search-form" action="#"> %>
+          <%# <input class='input-box' placeholder='作品名から探す'> %>
+          <button class="search-button">
+            <%= image_tag "search.png", class:"search-icon" %>
+          </button>
+          <%# </form> %>
+        </div>
+        <% end %>
+        <%# //ログインの有無で表示が変わる%>
+      </ul>
+    </div>
+    <div>
+      <ul class='lists-right-hidden', id="genre-bar">
+        <%# pathにそれぞれのジャンルを認識させるための値を渡している %>
+        <li><%= link_to '絵画', rooms_genre_path(genre: "絵画"), class: "genre-list" %></li>
+        <li><%= link_to '写真', rooms_genre_path(genre: "写真"), class: "genre-list" %></li>
+        <li><%= link_to '書道', rooms_genre_path(genre: "書道"), class: "genre-list" %></li>
+        <li><%= link_to '立体', rooms_genre_path(genre: "立体"), class: "genre-list" %></li>
+        <li><%= link_to 'テキスタイル', rooms_genre_path(genre: "テキスタイル"), class: "genre-list" %></li>
+        <%# //pathにそれぞれのジャンルを認識させるためのpathを渡している %>
+      </ul>
+    </div>
   </div>
 </header>

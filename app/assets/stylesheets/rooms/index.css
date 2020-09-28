@@ -1,20 +1,175 @@
+@font-face {
+  font-family: "Moon";
+  src: asset_url('Moon Light.otf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.wrapper {
+  overflow:hidden;
+  background-image: url("/images/background.png");
+  background-size: auto;
+}
 .lien-image {
   width: 100%;
-  height: 550px;
+  height: 80vh;
 }
 
-.how-to {
-  width: 100%;
-  height: 350px;
+.lien-image-box {
+  position: relative;
+  background: #000;
 }
 
-.popular-room {
-  width: 14%;
-  font-size: 40px;
-  margin-top: 100px;
-  margin-left: auto;
-  margin-right: auto;
-  background:linear-gradient(transparent 65%, #c4e2df 0%);
+.lien-image-box img {
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+.lien-image-box:hover img {
+  opacity: 0.6;
+  transition-duration: 0.3s;
+}
+
+.lien-image-box h1 {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  color: #ffffff;
+  font-size: 10vh;
+  font-family: Moon;
+}
+
+.lien-image-box p {
+  position: absolute;
+  top: 55%;
+  left: 10%;
+  color: #ffffff;
+  font-size: 4vh;
+}
+.info-wrap {
+  margin-bottom: 30vh;
+  display: flex;
+  justify-content: center;
+}
+
+.title-left {
+  margin-left: 6vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.book-mark-image {
+  width: 7vh;
+  height: 7vh;
+}
+
+.title-name {
+  color: #2a2a2a;
+  font-size: 4vh;
+  margin-top: 5vh;
+  margin-bottom: 6vh;
+}
+
+.more-rooms {
+  width: 12vh;
+  height: 12vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(226, 193, 122);
+  border-radius: 10vh;
+}
+
+.popular-room-index {
+  color: #ffffff;
+  font-size: 3vh;
+  font-weight: bold;
+  font-family: Moon;
+}
+
+.genre-image {
+  width: 28vh;
+  height: 40vh;
+  border-radius: 5vh;
+}
+
+.genre-image-box {
+  margin-right: 5vw;
+  display: flex;
+}
+
+.genre-image-link {
+  position: relative;
+  margin: 2vh;
+}
+
+.genre-image-link img{
+  cursor: pointer;
+  filter: grayscale(100%);
+  transition-duration: 0.5s;
+}
+
+.genre-image-link img:hover{
+  filter: grayscale(0);
+  transition-duration: 0.5s;
+}
+
+
+.genre-image-link p {
+  position: absolute;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 3vh;
+  top: 50%;
+  left: 3%;
+  font-family: Moon;
+}
+
+
+.yazirusi-image {
+  position: absolute;
+  width: 5vh;
+  height: 5vh;
+  top: 75%;
+  left: 40%;
+}
+
+.artist-image-box {
+  margin-right: 5vw;
+  display: flex;
+}
+.artist-image {
+  width: 30vh;
+  height: 30vh;
+  border-radius: 30vh;
+}
+
+.artist-image-link {
+  margin: 2vh;
+}
+
+.artist-image-link img {
+  cursor: pointer;
+  filter: grayscale(100%);
+  transition-duration: 0.5s;
+}
+
+.artist-image-link img:hover{
+  filter: grayscale(0);
+  transition-duration: 0.5s;
+}
+
+.artist-image-link p {
+  color: #2a2a2a;
+  font-weight: bold;
+  font-size: 3vh;
+  top: 50%;
+  left: 3%;
+  text-align: center;
+  margin-top: 2vh;
+  font-family: Moon;
 }
 
 a {
@@ -22,24 +177,30 @@ a {
 }
 
 /* 人気の個展表示 */
+.info-wrap {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20vh;
+}
 
 .room-contents {
-  
+  margin: 0 5vw;
 }
 
 .room-lists {
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 10vh;
 }
 
 .room-lists>.list {
   padding: 1vh;
-  margin: 1vh;
-  width: 40vh;
-  height: 60vh;
+  margin: 0 1vh;
+  width: 36vh;
+  height: 54vh;
+  border-radius: 4vh;
   background-color: #ffffff;
   box-shadow: 0 0 1vh gray;
 }
@@ -50,25 +211,62 @@ a {
 }
 
 .room-img {
-  width: 33vh;
-  height: 33vh;
+  width: 30vh;
+  height: 30vh;
+  border-radius: 4vh;
+}
+
+.no-img-box {
+  width: 30vh;
+  height: 30vh;
+  border: 1vh solid #302e2e ;
+  border-radius: 4vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.2;
+}
+
+.no-img {
+  font-weight: bold;
+  font-size: 8vh;
+  font-family: Moon;
+  color: #302e2e;
 }
 
 .room-info {
   text-align:center;
-  margin: 1vh 0;
+  margin: 2.5vh 0 0 0;
   background-color: #ffffff;
   color: black;
 }
 
+.room-link {
+  color: #2a2a2a;
+}
 .room-name {
-  font-size: 4vh;
-  margin: 2vh 0;
+  width: 17vw;
+  height: 5vh;
+  font-size: 3vh;
+  box-shadow: 0 0 1vh gray;
+  border-radius: 1vh;
+  margin: 1vh auto 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .artist-name {
-  font-size: 3vh;
-  margin: 2vh 0;
+  width: 13vw;
+  height: 5vh;
+  font-size: 2.5vh;
+  box-shadow: 0 0 1vh gray;
+  border-radius: 1vh;
+  margin: 2vh auto 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .like-count-sum {
@@ -86,23 +284,5 @@ a {
   color: black;
   font-size: 2vh;
 }
-
-.more-rooms {
-  margin: 1vh;
-  width: 10vh;
-  height: 60vh;
-  box-shadow: 0 0 1vh gray;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #c4e2df;
-}
-
-.popular-room-index {
-  color: #ffffff;
-  font-size: 3vh;
-}
-
-
 
 
