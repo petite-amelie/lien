@@ -12,7 +12,6 @@
 .lien-icon {
   color: #ffffff;
   font-size: 6vh;
-  font-family: Moon;
 }
 
 
@@ -49,7 +48,6 @@ li {
   text-decoration: none;
   color:white;
   font-weight: bold;
-  font-family: Moon;
 }
 
 .genre-list {
@@ -80,7 +78,6 @@ li {
   color: white;
   font-weight: bold;
   margin: 0 1.5vw;
-  font-family: Moon;
 }
 
 
@@ -90,7 +87,6 @@ li {
   color:white;
   margin: 0 1.5vw;
   font-weight: bold;
-  font-family: Moon;
 }
 
 .login {
@@ -99,7 +95,6 @@ li {
   color: white;
   margin: 0 1.5vw;
   font-weight: bold;
-  font-family: Moon;
 }
 
 .sign-up {
@@ -108,7 +103,6 @@ li {
   color: white;
   margin: 0 1.5vw;
   font-weight: bold;
-  font-family: Moon;
 }
 
 .create-room {
@@ -117,7 +111,6 @@ li {
   text-decoration: none;
   color: white;
   font-weight: bold;
-  font-family: Moon;
 }
 
 .search-button {
