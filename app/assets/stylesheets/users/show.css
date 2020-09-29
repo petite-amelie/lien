@@ -1,8 +1,11 @@
+.background-wrapper {
+  background-image: url("/images/dot.png");
+  background-size: auto;
+}
+
 .my-page-wrap {
   display: flex;
   justify-content: space-around;
-  background-image: url("/images/dot.png");
-  background-size: auto;
 }
 .user-side-bar {
   margin-left: 5vh;

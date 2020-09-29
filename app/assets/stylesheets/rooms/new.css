@@ -1,0 +1,102 @@
+.background-wrapper {
+  background-image: url("/images/dot.png");
+  background-size: auto;
+}
+
+.form-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 15vh 0;
+}
+
+.form-header {
+  margin-bottom: 15vh;
+}
+
+.form-header-text {
+  font-size: 10vh;
+  color: #2a2a2a;
+}
+
+.form-create-room {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 60vw;
+  background-color: #f5f5f5;
+  padding: 10vh 0;
+}
+
+.room-form-box {
+  margin-bottom: 10vh;
+}
+
+.weight-bold-text {
+  margin: 4vh 0;
+  font-weight: bold;
+  font-size: 2vh;
+}
+
+.weight-bold-text p{
+  margin-top: 1vh;
+  font-size: 1.5vh;
+  font-weight: lighter;
+}
+
+.indispensable {
+  color: #ffffff;
+  background-color: rgb(226, 193, 122);
+  font-size: 1.6vh;
+  padding: 0.4vh;
+  border-radius: 1vh;
+}
+
+.room-text {
+  width: 80vh;
+  cursor: text;
+}
+
+.room-img-upload {
+  margin-bottom: 7vh;
+}
+
+.room-file {
+  display: none;
+}
+
+.form-image-box {
+  width: 80vh;
+  height: 30vh;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.image-btn {
+  width: 5vh;
+  height: 3vh;
+}
+
+.room-check-box {
+  width: 80vh;
+  margin-bottom: 10vh;
+}
+
+input[type="checkbox"] {
+  margin-left: 5vh;
+  cursor: pointer;
+  }
+
+.sell-btn {
+  cursor: pointer;
+  padding: 2vh;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #2a2a2a;
+  }
