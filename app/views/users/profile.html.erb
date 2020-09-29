@@ -6,7 +6,9 @@
 <div class="user-info-no-change">
   <div class="user-info-contents">
     <h4 class="user-info"> <%= "プロフィール画像" %> </h4>
+    <%if @user.avatar.attached?%>
     <%= image_tag @user.avatar, class: "user-avatar" %>
+    <% end %>
   </div>
   <div class="user-info-contents">
     <h4 class="user-info"> <%= "お名前" %> </h4>
