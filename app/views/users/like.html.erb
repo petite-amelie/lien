@@ -1,15 +1,24 @@
+<div class="background-wrapper">
 <%= render "shared/header" %>
-
-<h1>お気に入りの個展一覧<h1>
-
-<%= link_to "マイページへ戻る", user_path(current_user.id), class: "move-to-mypage" %>
-<div class=room-contents>
-    <ul class="room-lists">
-      <% @user.liked_rooms.each do |room| %>
-        <% if room.status == "released"%>
-          <%= render partial: "shared/room_list", locals: {room: room} %>
-        <% end %>
-      <% end %>
-    </ul>
+<div class="redirect-to">
+  <%= link_to "マイページへ戻る", user_path(current_user.id), class: "redirect-to-mypage" %>
 </div>
+
+<div class="user-liked-room">
+  <div class="title-like">
+    <h1>お気に入りの個展一覧<h1>
+  </div>
+
+  <div class=like-room-contents>
+      <ul class="room-lists">
+        <% @user.liked_rooms.each do |room| %>
+          <% if room.status == "released"%>
+            <%= render partial: "shared/room_list", locals: {room: room} %>
+          <% end %>
+        <% end %>
+      </ul>
+  </div>
+</div>
+
 <%= render "shared/footer" %>
+</div>
