@@ -1,54 +1,70 @@
 <%= render "shared/header" %>
 
-<%# 他ユーザーの詳細とマイページで同じビューファイルを使いまわすためのif文 %>
-<% if current_user.id == @user.id %>
-  <h1 class="title-my-page">マイページ</h1>
-  <div class="left-contents">
-    <ul class="left-lists">
-      <li><%= link_to '個展の作成', new_room_path, class: "create-room" %></li>
-      <li><%= link_to 'お気に入りの個展', "/users/like/#{params[:id]}", class: "like-room" %></li>
-      <li><%= link_to 'プロフィール', "/users/profile/#{params[:id]}", class: "my-profile" %></li>
-      <li><%= link_to 'ガイド', "#", class: "app-guide" %></li>
-      <li><%= link_to 'お問い合わせ', "#", class: "contact-service" %></li>
-      <li><%= link_to '退会', "#", class: "cancel-member" %></li>
-    </ul>
-  </div>
-<% else %>
-  <h1><%= "#{@user.nickname}のページ" %></h1>
-<% end %>
-<%# //他ユーザーの詳細でマイページを同じビューファイルを使いまわすためのif文 %>
-
-
-<%# ユーザーの名前と画像 %>
-<div class="right-contents">
-  <div class="profile-info">
-    <% if @user.avatar.attached? %>                  <%# ユーザー画像がある場合は表示する %>
-      <div class="user-avatar-content">
-        <%= image_tag @user.avatar, class: "user-avatar" %>
+<div class="my-page-wrap">
+  <%# 他ユーザーの詳細とマイページで同じビューファイルを使いまわすためのif文 %>
+  <div class="user-side-bar">
+    <% if current_user.id == @user.id %>
+      <div class="left-contents">
+        <ul class="left-lists">
+          <%= link_to new_room_path do %>
+            <li>個展の作成</li>
+          <% end %>
+          <%= link_to "/users/like/#{params[:id]}" do %>
+            <li>お気に入りの個展</li>
+          <% end %>
+          <%= link_to "/users/profile/#{params[:id]}" do %>
+            <li>プロフィール</li>
+          <% end %>
+          <%= link_to "#" do %>
+            <li>ガイド</li>
+          <% end %>
+          <%= link_to "#" do %>
+            <li>お問い合わせ</li>
+          <% end %>
+          <%= link_to "#" do %>
+            <li>退会</li>
+          <% end %>
+        </ul>
       </div>
     <% end %>
-    <div class="user-name-content">
-      <h3><%= @user.nickname %></h3>
+    <%# //他ユーザーの詳細でマイページを同じビューファイルを使いまわすためのif文 %>
+  </div>
+  
+  <div class="user-info">
+    <%# ユーザーの名前と画像 %>
+    <div class="right-contents">
+      <div class="profile-info">
+        <% if @user.avatar.attached? %>                  <%# ユーザー画像がある場合は表示する %>
+          <div class="user-avatar-content">
+            <%= image_tag @user.avatar, class: "user-avatar" %>
+          </div>
+        <% else %>
+          <div class="no-avatar-content">
+            <%= image_tag "no_avatar.png", class: "no-avatar" %>
+          </div>
+        <% end %>
+        <div class="user-name-content">
+          <h3><%= @user.nickname %></h3>
+        </div>
+      </div>
     </div>
+    <%# //ユーザーの名前と画像 %>
+
+    <h2 class="user-have-rooom"><%= "#{@user.nickname}の個展一覧" %></h2>
+    <%# ユーザーの個展一覧 %>
+    <div class=right-under-contents>
+        <ul class="room-lists">
+          <% @rooms.each do |room| %>
+            <% if @user.id == current_user.id && room.user_id == @user.id%>          <%# 自分のユーザー詳細のページにアクセスした際に表示する条件 %>
+              <%= render partial: "shared/room_list", locals: {room: room} %>
+            <% elsif room.user_id == @user.id && room.status == "released" %>        <%# 他のユーザーの詳細のページにアクセスした際に表示する条件 %>
+              <%= render partial: "shared/room_list", locals: {room: room} %>
+            <% end %>
+          <% end %>
+        </ul>
+    </div>
+    <%# //ユーザーの個展一覧 %>
   </div>
 </div>
-<%# //ユーザーの名前と画像 %>
-
-
-<h2><%= "#{@user.nickname}の個展一覧" %></h2>
-<%# ユーザーの個展一覧 %>
-<div class=room-contents>
-    <ul class="room-lists">
-      <% @rooms.each do |room| %>
-        <% if @user.id == current_user.id && room.user_id == @user.id%>          <%# 自分のユーザー詳細のページにアクセスした際に表示する条件 %>
-          <%= render partial: "shared/room_list", locals: {room: room} %>
-        <% elsif room.user_id == @user.id && room.status == "released" %>        <%# 他のユーザーの詳細のページにアクセスした際に表示する条件 %>
-          <%= render partial: "shared/room_list", locals: {room: room} %>
-        <% end %>
-      <% end %>
-    </ul>
-</div>
-<%# //ユーザーの個展一覧 %>
-
 
 <%= render "shared/footer" %>

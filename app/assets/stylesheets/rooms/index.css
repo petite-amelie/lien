@@ -187,9 +187,9 @@ a {
 
 .room-lists>.list {
   padding: 1vh;
-  margin: 0 1vh;
-  width: 36vh;
-  height: 54vh;
+  margin: 1vh 1vh;
+  width: 32vh;
+  height: 48vh;
   border-radius: 4vh;
   background-color: #ffffff;
   box-shadow: 0 0 1vh gray;
@@ -201,14 +201,14 @@ a {
 }
 
 .room-img {
-  width: 30vh;
-  height: 30vh;
+  width: 25vh;
+  height: 25vh;
   border-radius: 4vh;
 }
 
 .no-img-box {
-  width: 30vh;
-  height: 30vh;
+  width: 25vh;
+  height: 25vh;
   border: 1vh solid #302e2e ;
   border-radius: 4vh;
   margin: 0 auto;
@@ -220,7 +220,7 @@ a {
 
 .no-img {
   font-weight: bold;
-  font-size: 8vh;
+  font-size: 6vh;
   color: #302e2e;
 }
 
@@ -235,9 +235,9 @@ a {
   color: #2a2a2a;
 }
 .room-name {
-  width: 17vw;
+  width: 13vw;
   height: 5vh;
-  font-size: 3vh;
+  font-size: 2vh;
   box-shadow: 0 0 1vh gray;
   border-radius: 1vh;
   margin: 1vh auto 0 auto;
@@ -249,7 +249,7 @@ a {
 .artist-name {
   width: 13vw;
   height: 5vh;
-  font-size: 2.5vh;
+  font-size: 1.8vh;
   box-shadow: 0 0 1vh gray;
   border-radius: 1vh;
   margin: 2vh auto 0 auto;
