@@ -1,0 +1,149 @@
+.room-info-wrap {
+  margin: 15vh 0 30vh 0;
+  display: flex;
+  justify-content: center;
+}
+
+.room-img-content {
+  position: relative;
+}
+
+.room-img-show {
+  width: 35vh;
+  height: 35vh;
+  border-radius: 4vh;
+}
+
+.room-info-show {
+  margin: 5vh 0 0 15vh;
+}
+
+.room-name-content {
+  border-left: 0.5vh solid #2a2a2a;
+  padding-left: 1vh;
+  margin-top: 1vh;
+  margin-bottom: 4vh;
+}
+
+.room-user-name {
+  border-left: 0.5vh solid #2a2a2a;
+  padding-left: 1vh;
+  margin-bottom: 4vh;
+}
+
+.user-page {
+  color: #2a2a2a;
+}
+
+.room-introduction-content {
+  border-left: 0.5vh solid #2a2a2a;
+  padding-left: 1vh;
+  height: 15vh;
+  margin-bottom: 4vh;
+}
+
+
+.room-edit-btn {
+  margin-bottom: 4vh;
+}
+
+.room-edit {
+  color: #2a2a2a;
+}
+
+.like-btn-box {
+  position: absolute;
+  top: 80%;
+  left: 75%;
+}
+
+.like-btn-box button {
+border: none;
+outline: none;
+cursor: pointer;
+background: none;
+}
+
+.like-delete-btn {
+  width: 4vh;
+  height: 4vh;
+}
+
+.like-count-show {
+  font-size: 2vh;
+}
+
+.room-edit-btn {
+  width: 4vh;
+  height: 4vh;
+  margin: 0.5vh 0 0 0.5vh;
+}
+
+
+/* 作品一覧 */
+
+.maked-items {
+  margin: 10vh;
+  background-color: #f5f5f5;
+  padding: 3vh;
+  display: flex;
+  justify-content: center;
+}
+
+.item-lists {
+  display: flex;
+}
+
+.item-lists li {
+  border: 1px solid #ffffff;
+  width: 35vh;
+  border-radius: 4vh;
+  box-shadow: 0 0 1vh gray;
+  margin: 2vh;
+}
+
+.item-img-content {
+  text-align: center;
+  margin: 3vh 0;
+}
+
+.item-img {
+  width: 25vh;
+  height: 25vh;;
+}
+
+.item-info {
+  text-align: center;
+}
+
+.item-name {
+  margin-bottom: 3vh;
+  color: #2a2a2a;
+  overflow:hidden;
+}
+
+.item-introduction {
+  margin-bottom: 3vh;
+  color: #2a2a2a;
+  overflow:hidden;
+}
+
+.item-price {
+  margin-bottom: 3vh;
+  color: #2a2a2a;
+}
+
+.item-price-content {
+  text-align: center;
+}
+.back-page {
+  text-align: center;
+}
+
+.back-btn {
+  padding: 2vh;
+  background-color: #2a2a2a;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 1vh;
+}
