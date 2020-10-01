@@ -1,12 +1,23 @@
 <%= render "shared/header" %>
-<h1> <%= "#{params[:genre]}の個展一覧" %> </h1>
-<div class=room-contents>
+
+
+<div class="genre-rooms-wrap">
+  <div class="genre-names">
+    <h1> <%= "#{params[:genre]}の個展一覧" %> </h1>
+  </div>
+  <div class="just-css-div">
+  <div class="room-contents">
     <ul class="room-lists">
-      <% @rooms.each do |room| %>
-        <% if room.status == "released" && room.genre.include?(params[:genre]) %>     <%# ジャンルによって表示する個展を変える %>
-          <%= render partial: "shared/room_list", locals: {room: room} %>
+        <% @rooms.each do |room| %>
+          <% if room.status == "released" && room.genre.include?(params[:genre]) %>     <%# ジャンルによって表示する個展を変える %>
+            <%= render partial: "shared/room_list", locals: {room: room} %>
+          <% end %>
         <% end %>
-      <% end %>
     </ul>
   </div>
+  </div>
+</div>
+
+
+
 <%= render "shared/footer" %>
