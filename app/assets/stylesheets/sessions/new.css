@@ -1,0 +1,10 @@
+.login-btn {
+  cursor: pointer;
+  padding: 2vh;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #2a2a2a;
+  margin-bottom: 2vh;
+  border-radius: 1vh;
+  border: none;
+}
