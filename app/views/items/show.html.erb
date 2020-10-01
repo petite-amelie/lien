@@ -1,41 +1,56 @@
 <%= render "shared/header" %>
 
-<%= link_to '戻る', 'javascript:history.back()', class: "back_to_page" %>
-<div class="item-show">
-  <div class="item-box">
-    <h2 class="item-name">
-      <%= @item.item_name %>
-    </h2>
-    <div class='item-img-content'>
-      <%= image_tag @item.item_image ,class:"item-box-img" %>
+
+<div class="item-show-wrap">
+  <div class='item-img-show'>
+    <%= image_tag @item.item_image ,class:"item-box-img" %>
+  </div>
+
+  <div class="item-show">
+    <div class="item-box">
+      <h3> 作品名 </h3>
+      <p class="item-name-show">
+        <%= @item.item_name %>
+      </p>
+      <h3> 作品紹介 </h3>
+      <p class="item-introduction-show">
+        <%= @item.item_introduction %>
+      </p>
+      <%# 価格が空の場合は表示しない %>
+      <h3 class="item-price-tag"> 価格 </h3>
+      <% if @item.price != nil %>
+        <div class="item-price-box">
+          <span class="item-price-show">
+            <%= "¥ #{@item.price}" %>
+          </span>
+          <span class="item-tax-show">
+            (税込)
+          </span>
+        </div>
+      <% elsif %>
+        <h4 class="no-set-price">価格が設定されていません<h4>
+      <% end %>
+      <%# //価格が空の場合は表示しない %>
+      <% if user_signed_in? && @room.user_id == current_user.id %>
+        <div class="about-item-btn">
+        <%= link_to '削除', "/rooms/#{@room.id}/items/#{@item.id}", method: :delete, data: { confirm: '作品を削除しますか？' }, class:'item-btn-show' %>
+        </div>
+      <% elsif @item.order == nil  && @item.price != nil %>
+        <div class="about-item-btn">
+        <%= link_to '購入する', "/rooms/#{@room.id}/items/#{@item.id}/orders",  class:'item-btn-show' %>
+        </div>
+      <% elsif @item.order != nil %>
+        <div class="item-soldout-tag">
+          <p class="item-soldout"> SOLD OUT </p>
+        </div>
+      <% end %>
     </div>
-    <p class="item-introduction">
-      <%= @item.item_introduction %>
-    </p>
-    <%# 価格が空の場合は表示しない %>
-    <% if @item.price != nil %>
-    <div class="item-price-box">
-      <span class="item-price">
-        <%= "¥ #{@item.price}" %>
-      </span>
-      <span class="item-tax">
-        (税込)
-      </span>
-    </div>
-    <% end %>
-    <%# //価格が空の場合は表示しない %>
+  </div>
 </div>
 
-<% if user_signed_in? && @room.user_id == current_user.id %>
-  <div class="item-destroy-btn">
-    <%= link_to '削除', "/rooms/#{@room.id}/items/#{@item.id}", method: :delete, data: { confirm: '作品を削除しますか？' }, class:'item-destroy' %>
-  </div>
-<% elsif @item.order == nil %>
-  <div class="item-order-btn">
-    <%= link_to '購入する', "/rooms/#{@room.id}/items/#{@item.id}/orders",  class:'item-order' %>
-  </div>
-<% else %>
-  <p> <%= "売却済み" %> </p>
-<% end %>
+<div class="back-page">
+<%=link_to 'Back', "javascript:history.back()", class:"back-btn" %>
+</div>
 
-    <%= render "shared/footer" %>
+
+<%= render "shared/footer" %>
