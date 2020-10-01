@@ -1,0 +1,91 @@
+.new-item-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.new-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 60vw;
+  background-color: #f5f5f5;
+  padding: 10vh 7.5vw;
+}
+
+.item-text {
+  width: 45vw;
+  cursor: text;
+}
+
+.item-file {
+  display: none;
+}
+
+.item-price-new {
+  width: 45vw;
+}
+
+.form-price-input {
+  width: 20vh;
+  height: 4vh;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 1vh;
+  margin-bottom: 8vh;
+}
+
+.price-input {
+  width: 20vh;
+  height: 4vh;
+  cursor: text;
+}
+
+.sell-yen {
+  padding-right: 1vh;
+}
+
+.item-index-title {
+  text-align: center;
+  margin-top: 10vh;
+  color: #2a2a2a;
+  font-size: 3vh;
+}
+
+.maked-items-new {
+  margin: 0 10vh 10vh 10vh;
+  background-color: #f5f5f5;
+  padding: 3vh;
+  display: flex;
+  justify-content: center;
+}
+
+.release-or-non {
+  height: 30vh;
+  text-align: center;
+}
+
+
+.release-btn-box {
+  margin: 10vh auto 0 auto;
+  width: 20vw;
+  height: 6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.release-btn {
+  width: 10vw;
+  padding: 2vh;
+  background-color: #2a2a2a;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 1vh;
+  cursor: pointer;
+  margin: 2vh 1vh;
+}
