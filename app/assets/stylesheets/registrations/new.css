@@ -1,0 +1,96 @@
+.form-group-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 75vw;
+  background-color: #f5f5f5;
+  padding: 10vh 0;
+}
+
+.form-header-title {
+  font-size: 6vh;
+}
+
+.form-header-user {
+  margin: 10vh;
+}
+
+.google-btn {
+  text-align: center;
+  margin-bottom: 10vh;
+}
+
+.google-sign-in {
+  width: 25vh;
+}
+
+.form-text-wrap  {
+  margin-bottom: 2vh;
+}
+
+.form-group {
+  margin-bottom: 7vh;
+}
+
+.form-info-header {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 3vh;
+}
+
+.input-default {
+  width: 80vh;
+  height: 6vh;
+  border: 1px solid #ccc;
+  border-radius: 1vh;
+}
+
+.input-name {
+  margin: 0 2vh;
+  width: 30vh;
+  height: 6vh;
+  border: 1px solid #ccc;
+  border-radius: 1vh;
+}
+
+.input-birth-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.input-birth-wrap select {
+  width: 4.5vw;
+  height: 3vw;
+  padding-left: 1vw;
+  border-radius: 1vh;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 1.5vh;
+  cursor: pointer;
+}
+
+.input-birth-wrap p {
+  line-height: 60px;
+  padding: 0 5px;
+}
+
+
+.avatar-file {
+  display: none;
+}
+
+.form-bottom-text {
+  margin-top: 8vh;
+}
+
+.register-btn {
+  cursor: pointer;
+  padding: 2vh;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #2a2a2a;
+  margin-bottom: 2vh;
+  border-radius: 1vh;
+  border: none;
+}
