@@ -1,0 +1,39 @@
+.edit-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 60vw;
+  background-color: #f5f5f5;
+  padding: 10vh 7.5vw;
+  margin: 15vh auto;
+}
+
+.edit-btn {
+  width: 10vw;
+  padding: 2vh;
+  background-color: #2a2a2a;
+  color: #ffffff;
+  font-size: 1.8vh;
+  font-weight: bold;
+  border-radius: 1vh;
+  cursor: pointer;
+  margin: 2vh 1vh;
+  border: none;
+}
+
+.item-destroy-btn {
+  width: 10vw;
+  padding: 2.3vh 0;
+  background-color: #2a2a2a;
+  border-radius: 1vh;
+  cursor: pointer;
+  margin: 2vh 1vh;
+  border: none;
+  text-align: center;
+}
+
+.item-destroy {
+  color: #ffffff;
+  font-weight: bold;
+}
