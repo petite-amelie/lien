@@ -1,0 +1,17 @@
+.second-fotter {
+  height: 20vh;
+  background-color: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.lien-icon {
+  margin: 2vh 0;
+}
+
+.second-fotter-text {
+  margin: 2vh;
+  color: #ffffff;
+}
