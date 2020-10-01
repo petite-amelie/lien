@@ -1,20 +1,33 @@
 <%= render "shared/header" %>
 
 <%= link_to "マイページへ戻る", "", class: "move-to-mypage" %>
-<div class="room-info">
-  <div class="room-name-content">
-    <h1 class="room-name"><%= @room.room_name %></h1>
-  </div>
+
+<div class="new-item-wrap">
+<div class="room-info-wrap">
   <div class="room-img-content">
     <%if @room.room_image.attached?%>
-    <%= image_tag @room.room_image, class: "room-img" %>
-    <%end%>
+      <%= image_tag @room.room_image, class: "room-img-show" %>
+    <% else %>
+      <div class="no-img-box">
+        <p class="no-img">LIEN.</p>
+      </div>
+    <% end %>
   </div>
-  <div class="room-introduction-content">
-    <p class="room-introduction"><%= @room.room_introduction %></p>
-  </div>
-  <div class="room-destroy-btn">
-    <%= link_to '個展の削除', "/rooms/#{@room.id}", method: :delete, data: { confirm: '個展内の作品も消えますがよろしいですか？' }, class:'room-destroy' %>
+    <div class="room-edit-btn">
+      <%= link_to "/rooms/#{@room.id}", method: :delete, data: { confirm: '個展内の作品も消えますがよろしいですか？' }, class:'room-destroy' do%>
+        <%= image_tag "destroy.png", class: "room-edit-btn"%>
+      <% end %>
+    </div>
+  <div class="room-info-show">
+    <div class="room-name-content">
+      <h1 class="room-name-show"><%= @room.room_name %></h1>
+    </div>
+    <div class="room-user-name">
+      <%= link_to @room.user.nickname, user_path(@room.user), class: "user-page" %>
+    </div>
+    <div class="room-introduction-content">
+      <p class="room-introduction"><%= @room.room_introduction %></p>
+    </div>
   </div>
 </div>
 
@@ -25,49 +38,62 @@
   <%# //エラーメッセージの表示 %>
 
   <%# 作品追加フォーム %>
+
   <div class="new-items">
-        <div class="weight-bold-text">
-          作品名
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_area :item_name, class:"items-text", id:"item-name", placeholder:"作品名（必須 20文字まで)", maxlength:"20" %>
-        <div class="items-explain">
-          <div class="weight-bold-text">
-            作品の説明
-            <span class="indispensable">任意</span>
+    <div class="items-explain">
+      <div class="weight-bold-text">
+        作品名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :item_name, class:"item-text", id:"item-name", placeholder:"作品名（必須 20文字まで)", maxlength:"20" %>
+    </div>
+    
+    <div class="items-explain">
+      <div class="weight-bold-text">
+        作品の説明
+      </div>
+      <%= f.text_area :item_introduction, class:"item-text", id:"item-info", placeholder:"作品の説明（必須 100文字まで)" ,rows:"5" ,maxlength:"100" %>
+    </div>
+
+    <div class="item-img-upload">
+      <div class="weight-bold-text">
+        作品画像
+        <span class="indispensable">必須</span>
+      </div>
+      <label>
+        <div class="click-upload">
+          <div class="form-image-box">
+            <%= image_tag "no-image.jpg" , class: "image-btn" %>
+            <p>クリックしてファイルをアップロード</p>
           </div>
-          <%= f.text_area :item_introduction, class:"items-text", id:"item-info", placeholder:"作品の説明（必須 100文字まで)" ,rows:"5" ,maxlength:"100" %>
+          <%= f.file_field :item_image, class: "item-file", id:"item-image" %>
         </div>
-        <div class="item-img-upload">
-          <div class="weight-bold-text">
-            作品画像
-            <span class="indispensable">必須</span>
-          </div>
-          <div class="click-upload">
-            <p>
-              クリックしてファイルをアップロード
-            </p>
-            <%= f.file_field :item_image, id:"item-image" %>
-          </div>
-        </div>
-        <div class="item-price">
-          <div class="weight-bold-text">
-            作品の料金
-            <span class="indispensable">任意</span>
-            <p>販売を希望しない場合は空欄で可</p>
-          </div>
-          <span class="sell-yen">¥</span>
-          <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）10000" %>
-        </div>
-        <div class="sell-btn-contents">
-          <%= f.submit "作品追加" ,class:"sell-btn" %>
-          <%=link_to 'もどる', "javascript:history.back()", class:"back-btn" %>
-        </div>
+      </label>
+    </div>
+
+
+
+    <div class="item-price-new">
+      <div class="weight-bold-text">
+        作品の料金
+        <p>販売を希望しない場合は空欄で可</p>
+      </div>
+    </div>
+    <div class="form-price-input">
+      <span class="sell-yen">¥</span>
+      <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）10000" %>
+    </div>
+    
+    <div class="sell-btn-contents">
+      <%= f.submit "作品追加" ,class:"sell-btn" %>
+    </div>
   </div>
   <%# //作品追加フォーム %>
+</div>
 
+<h3 class="item-index-title">作品の一覧</h3>
   <%# 追加した作品の一覧 %>
-  <div class="maked-items">
+  <div class="maked-items-new">
     <ul class="item-lists">
       <% @items.each do |item| %>
         <li class="list">
@@ -89,7 +115,7 @@
             <% if item.price != nil %>
               <div class="item-price-content">
                 <h4 class="item-price">
-                  <%= item.price %>
+                  <%="¥ #{item.price}"%>
                 </h4>
               </div>
             <% end %>
@@ -100,15 +126,17 @@
     </ul>
   </div>
   <%# //追加した作品の一覧 %>
-
+  <div class="release-or-non">
+    <p>個展及び作品の公開・非公開をお選びください</p>
+    <div class="release-btn-box">
+      <% if @room.released? %>
+        <%= link_to '非公開にする',"/rooms/nonrelease/#{@room.id}", method: :patch, class: "release-btn" %>
+      <% else %>
+        <%= link_to '公開する',"/rooms/release/#{@room.id}", method: :patch, class: "release-btn" %>
+        <%= link_to '公開しない', root_path, class: "release-btn" %>
+      <% end %>
+    </div>
+  </div>
 <% end %>
-
-<% if @room.released? %>
-  <%= link_to '非公開にする',"/rooms/nonrelease/#{@room.id}", method: :patch%>
-<% else %>
-  <%= link_to '公開する',"/rooms/release/#{@room.id}", method: :patch%>
-  <%= link_to '公開しない', root_path %>
-<% end %>
-
 
 <%= render "shared/footer" %>
