@@ -7,49 +7,55 @@
   <%# //エラーメッセージの表示 %>
 
   <%# 作品追加フォーム %>
-  <div class="new-items">
-        <div class="weight-bold-text">
-          作品名
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_area :item_name, class:"items-text", id:"item-name", placeholder:"作品名（必須 20文字まで)", maxlength:"20" %>
-        <div class="items-explain">
-          <div class="weight-bold-text">
-            作品の説明
-            <span class="indispensable">任意</span>
-          </div>
-          <%= f.text_area :item_introduction, class:"items-text", id:"item-info", placeholder:"作品の説明（必須 100文字まで)" ,rows:"5" ,maxlength:"100" %>
-        </div>
+      <div class="edit-items">
         <div class="item-img-upload">
           <div class="weight-bold-text">
             作品画像
             <span class="indispensable">必須</span>
           </div>
-          <div class="click-upload">
-            <p>
-              クリックしてファイルをアップロード
-            </p>
-            <%= f.file_field :item_image, id:"item-image" %>
+          <label>
+            <div class="click-upload">
+              <div class="form-image-box">
+                <%= image_tag "no-image.jpg" , class: "image-btn" %>
+                <p>クリックしてファイルをアップロード</p>
+              </div>
+              <%= f.file_field :item_image, class: "item-file", id:"item-image" %>
+            </div>
+          </label>
+        </div>
+
+        <div class="items-explain">
+          <div class="weight-bold-text">
+          作品名
+          <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :item_name, class:"item-text", id:"item-name", placeholder:"作品名（必須 20文字まで)", maxlength:"20" %>
+        </div>
+    
+        <div class="items-explain">
+          <div class="weight-bold-text">
+          作品の説明
+          </div>
+          <%= f.text_area :item_introduction, class:"item-text", id:"item-info", placeholder:"作品の説明（必須 100文字まで)" ,rows:"5" ,maxlength:"100" %>
+        </div>
+
+        <div class="item-price-new">
+          <div class="weight-bold-text">
+          作品の料金
+          <p>販売を希望しない場合は空欄で可</p>
           </div>
         </div>
-        <div class="item-price">
-          <div class="weight-bold-text">
-            作品の料金
-            <span class="indispensable">任意</span>
-            <p>販売を希望しない場合は空欄で可</p>
-          </div>
+        <div class="form-price-input">
           <span class="sell-yen">¥</span>
           <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）10000" %>
         </div>
+        
         <div class="sell-btn-contents">
           <%= f.submit "変更" ,class:"edit-btn" %>
-          <%=link_to 'もどる', "javascript:history.back()", class:"back-btn" %>
         </div>
-  </div>
-
+        <div class="item-destroy-btn">
+          <%= link_to '削除', "/rooms/#{@room.id}/items/#{@item.id}", method: :delete, data: { confirm: '作品を削除しますか？' }, class:'item-destroy' %>
+        </div>
+      </div>
 <% end %>
-<div class="item-destroy-btn">
-    <%= link_to '削除', "/rooms/#{@room.id}/items/#{@item.id}", method: :delete, data: { confirm: '作品を削除しますか？' }, class:'item-destroy' %>
-</div>
-
   <%= render "shared/footer" %>
