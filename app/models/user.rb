@@ -11,24 +11,32 @@ class User < ApplicationRecord
   has_many :liked_rooms, through: :likes, source: :room   #お気に入りしたroomを簡単に取得するための架空のテーブル
   has_many :orders
 
-  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-  validates_format_of :password, with: PASSWORD_REGEX
 
   with_options presence: true do
     validates :nickname, length: { maximum: 8 }
-    validates :phone_number, format:{ with: /\A\d{11}\z/ }
+    validates :phone_number
     validates :birth
+    validates :first_name
+    validates :last_name
+    validates :first_name_kana
+    validates :last_name_kana
   end
+  # allow_blank: trueを指定してエラーメッセージの重複を回避
+  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
+  validates_format_of :password, with: PASSWORD_REGEX, allow_blank: true
 
-  with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/ } do
+  validates :phone_number, format:{ with: /\A\d{11}\z/ }, allow_blank: true
+
+  with_options format: { with: /\A[ぁ-んァ-ン一-龥]+\z/ }, allow_blank: true do
     validates :first_name
     validates :last_name
   end
 
-  with_options presence: true, format: { with: /\A[ァ-ン]+\z/ } do
+  with_options format: { with: /\A[ァ-ン]+\z/ }, allow_blank: true do
     validates :first_name_kana
     validates :last_name_kana
   end
+  # //allow_blank: trueを指定してエラーメッセージの重複を回避
 
   # roomに対してすでにお気に入りにしているかどうか判定
   def already_liked?(room)
