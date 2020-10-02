@@ -1,6 +1,4 @@
 <%= render "shared/header" %>
-
-
 <div class="genre-rooms-wrap">
   <div class="genre-names">
     <h1> <%= "#{params[:genre]}の個展一覧" %> </h1>
@@ -9,7 +7,7 @@
   <div class="room-contents">
     <ul class="room-lists">
         <% @rooms.each do |room| %>
-          <% if room.status == "released" && room.genre.include?(params[:genre]) %>     <%# ジャンルによって表示する個展を変える %>
+          <% if room.status == "released" && room.genre.include?(params[:genre]) %>
             <%= render partial: "shared/room_list", locals: {room: room} %>
           <% end %>
         <% end %>
@@ -19,5 +17,5 @@
 </div>
 
 
-
+<%= will_paginate @rooms, previous_label: '&lt 前へ', next_label: '次へ &gt' %>
 <%= render "shared/footer" %>
