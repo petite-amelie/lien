@@ -9,29 +9,15 @@
 .logo-contents {
   margin: 3vh;
 }
+
 .lien-icon {
   color: #ffffff;
   font-size: 6vh;
 }
 
-
-/* .search-form {
-  width: 65vw;
-  height: 5vh;
-  display: flex;
-  margin-bottom: 5px;
-}
-
-.search-form>.input-box {
-  width: 100%;
-  height: 5vh;
-  padding-left: 10px;
-} */
-
 .nav {
   font-size: 18px;
 }
-
 
 li {
   list-style: none;
@@ -118,8 +104,17 @@ li {
   border: 0;
   margin: 0 1.5vw;
   background-color: #2a2a2a;
+  cursor: pointer;
+  position: relative;
 }
 
 .search-icon {
   width: 1.5vh;
+}
+
+.search-form {
+  display: none;
+  position: absolute;
+  right: 4%;
+  top: 8%;
 }

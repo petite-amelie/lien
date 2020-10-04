@@ -11,4 +11,11 @@ class Room < ApplicationRecord
     validates :genre
   end
   enum status:{nonreleased: 0, released: 1}
+
+  # 検索用のseacrメソッドの定義
+  def self.search(word)
+    @room = Room.where("room_name LIKE?","%#{word}%")
+        .or(Room.where("room_introduction LIKE?","%#{word}%"))
+  end
+  # //検索用のseacrメソッドの定義
 end

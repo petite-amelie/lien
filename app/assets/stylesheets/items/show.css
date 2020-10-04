@@ -8,6 +8,7 @@
   width: 45vw;
   height: 45vw;
   margin: 8vh 0 0 9vw;
+  object-fit: cover; 
 }
 
 .item-show {
