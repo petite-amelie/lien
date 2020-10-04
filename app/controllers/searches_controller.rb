@@ -1,5 +1,5 @@
 class SearchesController < ApplicationController
-
+  before_action :authenticate_user!, except: [:search]
   def search
     @range = params[:range]
     word = params[:word]
