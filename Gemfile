@@ -64,7 +64,7 @@ gem 'image_processing', '~> 1.2'
 gem 'active_hash'
 gem 'payjp'
 gem 'will_paginate'
-
+gem "aws-sdk-s3", require: false
 group :production do
   gem 'rails_12factor'
 end
