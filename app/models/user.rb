@@ -43,4 +43,10 @@ class User < ApplicationRecord
     self.likes.exists?(room_id: room.id)
   end
   # //roomに対してすでにお気に入りにしているかどうか判定
+
+  # 検索用のsearchメソッド定義
+  def self.search(word)
+    @user = User.where("nickname LIKE?","%#{word}%")
+  end
+  # //検索用のsearchメソッド定義
 end
