@@ -14,12 +14,14 @@
         <li><%= link_to "My account", user_path(current_user.id), class: "user-nickname" %></li>
         <li><%= link_to 'sign out', destroy_user_session_path, method: :delete, class: "logout" %></li>
         <div class="lists-right-content">
-          <%# <form class="search-form" action="#"> %>
-          <%# <input class='input-box' placeholder='作品名から探す'> %>
-          <button class="search-button">
+          <button class="search-button" id="search-icon">
             <%= image_tag "search.png", class:"search-icon" %>
           </button>
-          <%# </form> %>
+          <%= form_tag(search_path, method: :get, class: "search-form", id: "search-form") do %>
+          <%= select_tag 'range' ,options_for_select([['ユーザー', '1'], ['作品', '2'], ['個展', '3']]) %>
+          <%= text_field_tag (:word) %>
+          <%= submit_tag "検索" %>
+          <% end %>
         </div>
         <% else %>
         <div class="genre-btn">
@@ -28,12 +30,14 @@
         <li><%= link_to 'sign in', new_user_session_path, class: "login" %></li>
         <li><%= link_to 'sign up', new_user_registration_path, class: "sign-up" %></li>
         <div class="lists-right-content">
-          <%# <form class="search-form" action="#"> %>
-          <%# <input class='input-box' placeholder='作品名から探す'> %>
-          <button class="search-button">
+          <button class="search-button" id="search-icon">
             <%= image_tag "search.png", class:"search-icon" %>
           </button>
-          <%# </form> %>
+          <%= form_tag(search_path, method: :get, class: "search-form", id: "search-form") do %>
+          <%= select_tag 'range' ,options_for_select([['ユーザー', '1'], ['作品', '2'], ['個展', '3']]) %>
+          <%= text_field_tag (:word) %>
+          <%= submit_tag "検索" %>
+          <% end %>
         </div>
         <% end %>
         <%# //ログインの有無で表示が変わる%>
