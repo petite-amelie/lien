@@ -1,0 +1,102 @@
+<%= render "shared/header" %>
+
+<%# ユーザーの検索結果 %>
+<% if @range == "1" %>
+  <div class="search-result-word">
+    <%= "「#{@word}」の検索結果" %>
+  </div>
+  <% if @user == []  %>
+    <div class="search-result">
+      <h1>該当する検索結果はありません</h1>
+    </div>
+  <% else %>
+    <div class="search-result">
+      <ul class="user-avatar-search">
+        <% @user.each do |user| %>
+          <div class="center-css">
+          <li class="user-avatar-link">
+            <%= link_to user_path(user) do %>
+              <% if user.avatar.attached? %>
+                <div class="avatar-flame">
+                <%= image_tag user.avatar, class:"artist-image" %>
+                </div>
+              <% else %>  
+                <div class="no-avatar-flame">
+                <%= image_tag "no_avatar.png", class: "no-avatar-search" %>
+                </div>
+              <% end %>
+            <% end %>
+            <p class="user-avatar-nickname"><%= user.nickname %></p>
+          </li>
+          </div>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+<%# //ユーザーの検索結果 %>
+
+<%# 作品の検索結果 %>
+<% if @range == "2" %>
+<div class="search-result-word">
+  <%= "「#{@word}」の検索結果" %>
+</div>
+<div class="search-result">
+  <div class="maked-items-new">
+    <ul class="item-lists">
+      <% @item.each do |item| %>
+        <% if item.room.status ==  "released" %>
+        <li class="list">
+          <%= link_to "/rooms/#{item.room_id}/items/#{item.id}" do %>
+            <div class="item-img-content">
+              <%if item.item_image.attached?%>
+              <%= image_tag item.item_image, class: "item-img" %>
+              <%end%>
+            </div>
+            <div class="item-info">
+              <h3 class="item-name">
+                <%= item.item_name %>
+              </h3>
+              <h3 class="item-introduction">
+                <%= item.item_introduction %>
+              </h3>
+            </div>
+            <%# priceがある作品だけ表示する %>
+            <% if item.price != nil %>
+              <div class="item-price-content">
+                <h4 class="item-price">
+                  <%="¥ #{item.price}"%>
+                </h4>
+              </div>
+            <% end %>
+            <%# //priceがある作品だけ表示する %>
+          <% end %>
+        </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<% end %>
+<%# //作品の検索結果 %>
+
+<%# 個展の検索結果 %>
+<% if @range == "3" %>
+  <div class="search-result-word">
+<%= "「#{@word}」の検索結果" %>
+</div>
+<div class="search-result">
+  <div class="room-contents">
+    <ul class="room-lists">
+        <% @room.each do |room| %>
+          <% if room.status == "released" %>
+            <%= render partial: "shared/room_list", locals: {room: room} %>
+          <% end %>
+        <% end %>
+    </ul>
+  </div>
+</div>
+<% end %>
+<%# //個展の検索結果 %>
+
+<%= render "shared/footer" %>
