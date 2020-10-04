@@ -92,14 +92,16 @@ background: none;
 
 .item-lists {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .item-lists li {
   border: 1px solid #ffffff;
-  width: 35vh;
+  width: 30vh;
   border-radius: 4vh;
   box-shadow: 0 0 1vh gray;
-  margin: 2vh;
+  margin: 1vh;
 }
 
 .item-img-content {
@@ -109,7 +111,9 @@ background: none;
 
 .item-img {
   width: 25vh;
-  height: 25vh;;
+  height: 25vh;
+  object-fit: cover; 
+  border-radius: 3vh;
 }
 
 .item-info {

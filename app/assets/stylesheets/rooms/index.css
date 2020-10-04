@@ -101,6 +101,7 @@
   cursor: pointer;
   filter: grayscale(100%);
   transition-duration: 0.5s;
+  object-fit: cover; 
 }
 
 .genre-image-link img:hover{
@@ -135,6 +136,7 @@
   width: 30vh;
   height: 30vh;
   border-radius: 30vh;
+  object-fit: cover; 
 }
 
 .artist-image-link {
@@ -216,6 +218,7 @@ a {
   align-items: center;
   justify-content: center;
   opacity: 0.2;
+  object-fit: cover; 
 }
 
 .no-img {

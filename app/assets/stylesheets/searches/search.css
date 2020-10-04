@@ -1,0 +1,55 @@
+.search-result-word {
+  margin: 5vh 0 0 5vh;
+}
+
+.search-result {
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  background-color: #f5f5f5;
+  padding: 10vh 5vh;
+  margin: 15vh auto 15vh auto;
+}
+
+.search-result h1 {
+  font-size: 2.5vh;
+}
+
+.user-avatar-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.user-avatar-search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.avatar-flame {
+  margin: 3vh;
+}
+
+.no-avatar-flame {
+  width: 30vh;
+  height: 30vh;
+  border-radius: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2a2a2a;
+  margin: 3vh;
+}
+
+.no-avatar-search {
+  object-fit: cover; 
+  width: 15vh;
+  height: auto;
+}
+
+.user-avatar-nickname {
+  margin-top: 1vh;
+  font-weight: bold;
+}
