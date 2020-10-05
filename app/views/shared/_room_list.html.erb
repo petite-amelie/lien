@@ -5,7 +5,7 @@
         <%= image_tag room.room_image, class: "room-img" %>
       <% else %>
         <div class="no-img-box">
-          <p class="no-img">LIEN.</p>
+          <%= image_tag "lien_logo_mark.png", class:"no-img" %>
         </div>
       <% end %>
       <% if room.status == "nonreleased" %>
@@ -21,7 +21,7 @@
       </h3>
     </div>
     <div class="like-count-sum">
-      <%= image_tag "like.png", class: "like-icon" %>
+      <%= image_tag "like_red.png", class: "like-icon" %>
       <span class="like-count"><%= room.liked_users.count %></span>
     </div>
   <% end %>

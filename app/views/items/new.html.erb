@@ -6,8 +6,8 @@
     <%if @room.room_image.attached?%>
       <%= image_tag @room.room_image, class: "room-img-show" %>
     <% else %>
-      <div class="no-img-box">
-        <p class="no-img">LIEN.</p>
+      <div class="room-img-content">
+        <%= image_tag "lien_logo_mark.png", class:"no-img-show" %>
       </div>
     <% end %>
   </div>
