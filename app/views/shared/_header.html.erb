@@ -1,6 +1,8 @@
 <header class='top-page-header'>
   <div class='logo-contents'>
-    <%= link_to "LIEN.", root_path, class:"lien-icon" %>
+    <%= link_to root_path, class:"lien-icon" do %>
+      <%= image_tag "lien_white.png", class: "lien-logo-white" %>
+    <% end %>
   </div>
   <div class='nav'>
     <div class="lists-right-signin">

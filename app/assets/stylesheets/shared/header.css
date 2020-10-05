@@ -12,7 +12,10 @@
 
 .lien-icon {
   color: #ffffff;
-  font-size: 6vh;
+}
+
+.lien-logo-white {
+  width: 9vw;
 }
 
 .nav {

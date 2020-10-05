@@ -1,5 +1,7 @@
 <footer class='second-fotter'>
-  <%= link_to "LIEN.", root_path, class:"lien-icon" %>
+  <%= link_to root_path, class:"lien-icon" do %>
+    <%= image_tag "lien_white.png", class: "lien-logo-white" %>
+    <% end %>
   <div class='second-fotter-text-wrap'>
     <span class='second-fotter-text'>プライバシーポリシー</span>
     <span class='second-fotter-text'>LIEN利用規約</span>
