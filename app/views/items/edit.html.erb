@@ -17,8 +17,8 @@
             <div class="click-upload">
               <div class="form-image-box">
                 <%= image_tag "no-image.jpg" , class: "image-btn" %>
-                <p>クリックしてファイルをアップロード</p>
               </div>
+               <div class="image-preview", id="image-list"> <div><%= image_tag @item.item_image, id: "img-1" %></div></div>
               <%= f.file_field :item_image, class: "item-file", id:"item-image" %>
             </div>
           </label>
