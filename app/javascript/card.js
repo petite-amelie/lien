@@ -33,5 +33,6 @@ const pay = () => {
     });
   });
  };
- 
+ if (document.URL.match( /orders/ )) {
  window.addEventListener("load", pay);
+ }

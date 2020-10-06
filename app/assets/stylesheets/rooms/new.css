@@ -67,6 +67,12 @@
   display: none;
 }
 
+.click-upload {
+  width: 80vh;
+  height: 30vh;
+  position: relative;
+}
+
 .form-image-box {
   width: 80vh;
   height: 30vh;
@@ -77,6 +83,16 @@
   flex-direction: column;
   cursor: pointer;
   border-radius: 1vh;
+}
+
+.image-preview div img {
+  width: 30vh;
+  height: 30vh;
+  border-radius: 4vh;
+  object-fit: cover;
+  position: absolute;
+  top: 0%;
+  left: 30%;
 }
 
 .image-btn {
