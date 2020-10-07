@@ -44,19 +44,11 @@ class RoomsController < ApplicationController
   end
 
   def genre
-    # ジャンル別にレコードを取得
-    if params[:genre].include?("絵画")
-      @rooms = Room.where('genre like ?','%絵画%').order("created_at DESC").with_attached_room_image.paginate(page: params[:page], per_page: 12)
-    elsif params[:genre].include?("テキスタイル")
-      @rooms = Room.where('genre like ?','%テキスタイル%').order("created_at DESC").with_attached_room_image.paginate(page: params[:page], per_page: 12)
-    elsif params[:genre].include?("写真")
-      @rooms = Room.where('genre like ?','%写真%').order("created_at DESC").with_attached_room_image.paginate(page: params[:page], per_page: 12)
-    elsif params[:genre].include?("彫刻")
-      @rooms = Room.where('genre like ?','%彫刻%').order("created_at DESC").with_attached_room_image.paginate(page: params[:page], per_page: 12)
-    elsif params[:genre].include?("書道")
-      @rooms = Room.where('genre like ?','%書道%').order("created_at DESC").with_attached_room_image.paginate(page: params[:page], per_page: 12)
-    end
-    # //ジャンル別にレコードを取得
+    @rooms = Room.select_genre(params[:genre], params[:page])   #roomモデルでメソッドを定義してます
+  end
+
+  def popular
+    @likes = Room.paginate(page: params[:page], per_page: 12).with_attached_room_image
   end
 
   private
