@@ -1,0 +1,21 @@
+<%= render "shared/header" %>
+<div class="genre-rooms-wrap">
+  <div class="genre-names">
+    <h1> <%= "人気の個展一覧" %> </h1>
+  </div>
+  <div class="just-css-div">
+  <div class="room-contents">
+    <ul class="room-lists">
+        <% @likes.sort {|a,b| b.liked_users.count <=> a.liked_users.count}.each do |room| %>  <%#paginateがうまくできなかったのでビューでしてます%>
+          <% if room.status == "released" %>
+            <%= render partial: "shared/room_list", locals: {room: room} %>
+          <% end %>
+        <% end %>
+    </ul>
+  </div>
+  </div>
+</div>
+
+
+<%= will_paginate @likes, previous_label: '&lt 前へ', next_label: '次へ &gt' %>
+<%= render "shared/footer" %>
