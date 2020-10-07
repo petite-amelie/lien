@@ -44,7 +44,11 @@ class RoomsController < ApplicationController
   end
 
   def genre
-    @rooms = Room.select_genre(params[:genre], params[:page])
+    @rooms = Room.select_genre(params[:genre], params[:page])   #roomモデルでメソッドを定義してます
+  end
+
+  def popular
+    @likes = Room.paginate(page: params[:page], per_page: 12).with_attached_room_image
   end
 
   private
