@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/users/profile/:id", to: "users#profile"
   get "/users/like/:id", to: "users#like"
   get "/rooms/genre", to: "rooms#genre"
+  get "/rooms/popular", to: "rooms#popular"
   get "search" => "searches#search"
   resources :rooms, only: [:index, :new, :create, :destroy, :show] do
     resources :items do
