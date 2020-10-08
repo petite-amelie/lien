@@ -29,13 +29,13 @@ class RoomsController < ApplicationController
   def release
     @room =  Room.find(params[:id])
     @room.released! unless @room.released?
-    redirect_to  root_path
+    redirect_to user_path(current_user.id)
   end
 
   def nonrelease
     @room =  Room.find(params[:id])
     @room.nonreleased! unless @room.nonreleased?
-    redirect_to root_path
+    redirect_to user_path(current_user.id)
   end
 
   def show
